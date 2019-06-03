@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5362536434691430318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3684212768979641311}
+  - component: {fileID: 5616893216853818024}
+  m_Layer: 0
+  m_Name: atlasAllReal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3684212768979641311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362536434691430318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5616893216853818024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362536434691430318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  mSprites:
+  - name: public__empty
+    x: 0
+    y: 0
+    width: 4
+    height: 4
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 1
+    borderBottom: 1
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/public/_empty.png
+  - name: coolape_name
+    x: 0
+    y: 0
+    width: 213
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/name.PNG
+  - name: coolape_button
+    x: 0
+    y: 0
+    width: 116
+    height: 104
+    borderLeft: 46
+    borderRight: 46
+    borderTop: 46
+    borderBottom: 46
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/button.png
+  - name: coolape_input
+    x: 0
+    y: 0
+    width: 118
+    height: 106
+    borderLeft: 46
+    borderRight: 46
+    borderTop: 46
+    borderBottom: 46
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/input.png
+  - name: coolape_logo
+    x: 0
+    y: 0
+    width: 200
+    height: 200
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/logo.png
+  - name: coolape_password
+    x: 0
+    y: 0
+    width: 43
+    height: 45
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/password.png
+  - name: coolape_user
+    x: 0
+    y: 0
+    width: 43
+    height: 45
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/coolape/user.png
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+  _isBorrowSpriteMode: 1
