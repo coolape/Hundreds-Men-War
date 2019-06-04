@@ -799,6 +799,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1572780202}
     m_Modifications:
+    - target: {fileID: 9026017899864940503, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
+        type: 3}
+      propertyPath: atlasName
+      value: atlasAllReal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026017899578437837, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026017900637718080, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026017900637718085, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
+        type: 3}
+      propertyPath: atlasName
+      value: EmptyAtlas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026017900637718085, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
+        type: 3}
+      propertyPath: mColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9026017899722217086, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
         type: 3}
       propertyPath: m_Name
@@ -864,17 +889,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9026017899578437837, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9026017899724415230, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026017900637718080, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -969,21 +984,6 @@ PrefabInstance:
         type: 3}
       propertyPath: topType
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026017899864940503, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
-        type: 3}
-      propertyPath: atlasName
-      value: atlasAllReal
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026017900637718085, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
-        type: 3}
-      propertyPath: atlasName
-      value: EmptyAtlas
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026017900637718085, guid: 3e7593f3e1f8d46b9a688be4f2c14222,
-        type: 3}
-      propertyPath: mColor.a
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1157,8 +1157,8 @@ MonoBehaviour:
   rightType: 2
   bottomType: 2
   topType: 2
-  atlasName: EmptyAtlas
-  mAtlas: {fileID: 6991355390315801666, guid: 27cf78a719d0b4ad3a444c96f30905ca, type: 3}
+  atlasName: atlasAllReal
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a92b5d748695fd44aac9feef17ba415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventType: 3
+  eventType: 1
   eventsGoToColliders: 1
   eventReceiverMask:
     serializedVersion: 2
