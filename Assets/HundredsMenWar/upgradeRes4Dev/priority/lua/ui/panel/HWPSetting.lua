@@ -1,13 +1,13 @@
 ﻿-- xx界面
 do
-    local IDPSetting = {}
+    local HWPSetting = {}
 
     local csSelf = nil;
     local transform = nil;
     local uiobjs = {}
 
     -- 初始化，只会调用一次
-    function IDPSetting.init(csObj)
+    function HWPSetting.init(csObj)
         csSelf = csObj;
         transform = csObj.transform;
         --[[
@@ -18,30 +18,30 @@ do
     end
 
     -- 设置数据
-    function IDPSetting.setData(paras)
+    function HWPSetting.setData(paras)
     end
 
     -- 显示，在c#中。show为调用refresh，show和refresh的区别在于，当页面已经显示了的情况，当页面再次出现在最上层时，只会调用refresh
-    function IDPSetting.show()
+    function HWPSetting.show()
         uiobjs.ToggleBGM.value = SoundEx.musicBgSwitch
         uiobjs.ToggleEffect.value = SoundEx.soundEffectSwitch
     end
 
     -- 当加载好通用框的回调
-    function IDPSetting.onShowFrame(cs)
+    function HWPSetting.onShowFrame(cs)
         csSelf.frameObj:init({ title = LGet("Setting"), panel = csSelf, hideClose = false, hideTitle = false })
     end
 
     -- 刷新
-    function IDPSetting.refresh()
+    function HWPSetting.refresh()
     end
 
     -- 关闭页面
-    function IDPSetting.hide()
+    function HWPSetting.hide()
     end
 
     -- 网络请求的回调；cmd：指命，succ：成功失败，msg：消息；paras：服务器下行数据
-    function IDPSetting.procNetwork (cmd, succ, msg, paras)
+    function HWPSetting.procNetwork (cmd, succ, msg, paras)
         --[[
         if(succ == NetSuccess) then
           if(cmd == "xxx") then
@@ -51,7 +51,7 @@ do
     end
 
     -- 处理ui上的事件，例如点击等
-    function IDPSetting.uiEventDelegate( go )
+    function HWPSetting.uiEventDelegate( go )
         local goName = go.name;
         if goName ~= "hidden" then
             uiobjs.clickHiddenTimes = 0
@@ -81,10 +81,10 @@ do
     end
 
     -- 当按了返回键时，关闭自己（返值为true时关闭）
-    function IDPSetting.hideSelfOnKeyBack( )
+    function HWPSetting.hideSelfOnKeyBack( )
         return true;
     end
 
     --------------------------------------------
-    return IDPSetting;
+    return HWPSetting;
 end

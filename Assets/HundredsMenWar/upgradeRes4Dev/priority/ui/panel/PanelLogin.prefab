@@ -71,7 +71,7 @@ MonoBehaviour:
   aspectRatio: 4.725
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "\u6E38\u5BA2"
   mFontSize: 40
   mFontStyle: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   aspectRatio: 4.659091
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "[462306]\u4EB2\u7231\u7684\u73A9\u5BB6\uFF0C\u6B22\u8FCE\u6765\u5230\u300A\u6D77\u5C9B\u5927\u4F5C\u62182\u300B\uFF0C\u5EFA\u7ACB\u5C5E\u4E8E\u81EA\u5DF1\u7684\u6D77\u5C9B\uFF0C\u5F81\u670D\u4E03\u6D77\uFF0C\u6210\u4E3A\u6D77\u4E0A\u9738\u4E3B\uFF01\nQQ\u5B98\u65B9\u7FA4\uFF1A[-][008000]927410247[-]"
   mFontSize: 40
   mFontStyle: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 6991355390315801666, guid: 27cf78a719d0b4ad3a444c96f30905ca, type: 3}
   mSpriteName: public_common_bt_yellow_l5
   mFillCenter: 1
   isGrayMode: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
   aspectRatio: 6.8333335
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "\u70B9\u51FB\u5F00\u59CB\u6E38\u620F"
   mFontSize: 60
   mFontStyle: 3
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: icon_setting
   mFillCenter: 1
   isGrayMode: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   aspectRatio: 4.725
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "Coolape\u8D26\u53F7"
   mFontSize: 40
   mFontStyle: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 0}
       field: 
-      name: 
+      name: go
     oneShot: 0
 --- !u!114 &114180882152962404
 MonoBehaviour:
@@ -1207,8 +1207,8 @@ MonoBehaviour:
   trigger: 0
   volume: 1
   pitch: 1
-  soundFileName: Tap.ogg
-  soundName: Tap
+  soundFileName: 
+  soundName: 
 --- !u!1 &1526568286806810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   aspectRatio: 9.475
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "xx\u670D\u52A1\u5668"
   mFontSize: 40
   mFontStyle: 0
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: public_leftArrow
   mFillCenter: 1
   isGrayMode: 0
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: logo_gameLogo
   mFillCenter: 1
   isGrayMode: 0
@@ -1862,7 +1862,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: public_edit_circle_bt_shipshop_n
   mFillCenter: 1
   isGrayMode: 0
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 5616893216853818024, guid: d34e10328642c4a2fb7702442b57cfd3, type: 3}
   mSpriteName: public_leftArrow
   mFillCenter: 1
   isGrayMode: 0
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   aspectRatio: 6.8333335
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "\u70B9\u51FB\u5F00\u59CB\u6E38\u620F"
   mFontSize: 60
   mFontStyle: 3
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 6991355390315801666, guid: 27cf78a719d0b4ad3a444c96f30905ca, type: 3}
   mSpriteName: public_common_bt_blue_l3
   mFillCenter: 1
   isGrayMode: 0
@@ -2480,7 +2480,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 6991355390315801666, guid: 27cf78a719d0b4ad3a444c96f30905ca, type: 3}
   mSpriteName: public_common_bt_green_l2
   mFillCenter: 1
   isGrayMode: 0
@@ -2633,7 +2633,7 @@ MonoBehaviour:
   bottomType: 2
   topType: 2
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 6991355390315801666, guid: 27cf78a719d0b4ad3a444c96f30905ca, type: 3}
   mSpriteName: public_common_card_bg_grass_d
   mFillCenter: 1
   isGrayMode: 0
@@ -2708,7 +2708,7 @@ MonoBehaviour:
   aspectRatio: 1.9444444
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 3924417771282529900, guid: 428e615b346cd4c6eb6d880ac316e5f1, type: 3}
   mText: "\u7E41\u5FD9"
   mFontSize: 35
   mFontStyle: 0

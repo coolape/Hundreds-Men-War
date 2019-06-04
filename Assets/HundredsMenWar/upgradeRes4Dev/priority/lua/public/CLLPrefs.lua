@@ -9,6 +9,7 @@ do
     local musicSwitch = "musicSwitch";
     local userInfor = "userInfor"
     local currServer = "currServer"
+    local lastLoginBtn = "lastLoginBtn"
 
     Prefs = {};
 
@@ -86,5 +87,13 @@ do
     function Prefs.setMusicSwitch(v)
         local f = v and 0 or 1;
         PlayerPrefs.SetInt("musicSwitch", f);
+    end
+
+    function Prefs.setLastLoginBtn(v)
+        return PlayerPrefs.SetString(lastLoginBtn, v);
+    end
+
+    function Prefs.getLastLoginBtn()
+        return PlayerPrefs.GetString(lastLoginBtn, "");
     end
 end

@@ -142,6 +142,8 @@ do
     UILocalize = CS.UILocalize
     ---@type UIPlayTween
     UIPlayTween = CS.UIPlayTween
+    ---@type UIAnchor
+    UIAnchor = CS.UIAnchor
 
     ---@type Coolape.CLAssetsManager
     CLAssetsManager = CS.Coolape.CLAssetsManager
