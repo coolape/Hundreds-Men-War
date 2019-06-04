@@ -1038,12 +1038,12 @@ MonoBehaviour:
   serializeInMainThread: 1
   isStopping: 0
   lua: {fileID: 539284999}
-  _SuccessCodeValue: 0
+  _SuccessCodeValue: 1
   switchNetType: 0
   host4Publish: 127.0.0.1
   host4Test1: 
   host4Test2: 
-  serializeluaPath: 
+  serializeluaPath: HundredsMenWar/upgradeRes/priority/lua/net/CLLNetSerialize.lua
   gatePort: 8801
   httpPort: 0
   httpFunc: 
@@ -1174,6 +1174,7 @@ GameObject:
   - component: {fileID: 717584630}
   - component: {fileID: 717584629}
   - component: {fileID: 717584632}
+  - component: {fileID: 717584633}
   m_Layer: 5
   m_Name: UI Root
   m_TagString: Untagged
@@ -1292,6 +1293,22 @@ MonoBehaviour:
   EffectList: []
   frameName: 
   frameObj: {fileID: 0}
+--- !u!54 &717584633
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717584628}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1168972573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1435,7 @@ MonoBehaviour:
   luaPath: HundredsMenWar/upgradeRes/priority/lua/toolkit/CLLVerManager.lua
   isPrintDownload: 0
   downLoadTimes4Failed: 3
-  baseUrl: 
+  baseUrl: http://127.0.0.1/HundredsMenWar
   platform: 
   haveUpgrade: 0
   is2GNetUpgrade: 1
