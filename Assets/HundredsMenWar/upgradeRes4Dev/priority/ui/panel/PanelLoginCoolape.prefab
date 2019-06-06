@@ -1426,13 +1426,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1429489159005606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077c13af21bf0438dafc57d6de7ae789, type: 3}
+  m_Script: {fileID: 11500000, guid: ce565306cacc248a1b24bd45ee10228c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
   luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/CLLPLoginCoolape.lua
-  isNeedBackplate: 0
-  destroyWhenHide: 1
+  isNeedBackplate: 1
+  destroyWhenHide: 0
   isNeedResetAtlase: 1
   isNeedMask4Init: 0
   isNeedMask4InitOnlyOnce: 1
@@ -1440,8 +1440,7 @@ MonoBehaviour:
   isRefeshContentWhenEffectFinish: 0
   EffectRoot: {fileID: 0}
   effectType: 1
-  EffectList:
-  - {fileID: 114020293821717226}
+  EffectList: []
   frameName: 
   frameObj: {fileID: 0}
 --- !u!114 &114020293821717226

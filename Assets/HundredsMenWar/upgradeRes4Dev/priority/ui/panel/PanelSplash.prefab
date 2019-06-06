@@ -706,6 +706,8 @@ MonoBehaviour:
   EffectRoot: {fileID: 0}
   effectType: 0
   EffectList: []
+  frameName: 
+  frameObj: {fileID: 0}
 --- !u!1 &1485267868159926
 GameObject:
   m_ObjectHideFlags: 0

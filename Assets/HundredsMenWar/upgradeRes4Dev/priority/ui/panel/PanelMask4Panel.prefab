@@ -264,6 +264,8 @@ MonoBehaviour:
   EffectRoot: {fileID: 0}
   effectType: 0
   EffectList: []
+  frameName: 
+  frameObj: {fileID: 0}
   tweenAlpha: {fileID: 11400002}
   sprite: {fileID: 0}
   label: {fileID: 11400004}

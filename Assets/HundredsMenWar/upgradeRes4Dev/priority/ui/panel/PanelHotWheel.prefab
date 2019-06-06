@@ -206,6 +206,8 @@ MonoBehaviour:
   effectType: 0
   EffectList:
   - {fileID: 114992991974443072}
+  frameName: 
+  frameObj: {fileID: 0}
 --- !u!114 &114992991974443072
 MonoBehaviour:
   m_ObjectHideFlags: 0
