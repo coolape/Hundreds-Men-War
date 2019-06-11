@@ -71,7 +71,7 @@ MonoBehaviour:
   aspectRatio: 2.575
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u7206\u6EE1"
   mFontSize: 40
   mFontStyle: 0
@@ -130,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253638378587564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: -300, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4296375861037118}
@@ -226,7 +226,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.4765931, g: 0.7660513, b: 0.9622642, a: 1}
   mPivot: 4
   mWidth: 500
   mHeight: 120
@@ -246,8 +246,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
-  mSpriteName: public_inven_bg_slot
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!114 &114692801978574880
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  luaPath: island/upgradeRes/priority/lua/ui/cell/IDCellServer.lua
+  luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/cell/CLLCellServer.lua
   isNeedResetAtlase: 1
 --- !u!114 &114950587778032528
 MonoBehaviour:
@@ -419,7 +419,7 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 70
+  mWidth: 88
   mHeight: 46
   mDepth: 2
   autoResizeBoxCollider: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   aspectRatio: 1.5217391
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: NEW
   mFontSize: 45
   mFontStyle: 1
@@ -528,7 +528,7 @@ MonoBehaviour:
   aspectRatio: 8.3
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "001.\u65B0\u5927\u4E16\u754C"
   mFontSize: 40
   mFontStyle: 0
@@ -637,8 +637,8 @@ MonoBehaviour:
   bottomType: 2
   topType: 2
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
-  mSpriteName: public_common_card_bg_grass_d
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1798366967686924
@@ -711,7 +711,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -821,7 +821,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/HWPServers.lua
+  luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/MSPServers.lua
   isNeedBackplate: 1
   destroyWhenHide: 0
   isNeedResetAtlase: 1
@@ -853,8 +853,10 @@ MonoBehaviour:
   isRefeshContentWhenEffectFinish: 0
   EffectRoot: {fileID: 0}
   effectType: 1
-  EffectList: []
-  frameName: 
+  EffectList:
+  - {fileID: 114930501130763102}
+  - {fileID: 114754839782776162}
+  frameName: Frame2
   frameObj: {fileID: 0}
 --- !u!114 &114930501130763102
 MonoBehaviour:

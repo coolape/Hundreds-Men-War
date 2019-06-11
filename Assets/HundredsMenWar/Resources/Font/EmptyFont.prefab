@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6993814274124772437
+--- !u!1 &8706434919566097077
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6752221853253126888}
-  - component: {fileID: 3924417771282529900}
+  - component: {fileID: 4730829002217469619}
+  - component: {fileID: 8771531703593025164}
   m_Layer: 0
   m_Name: EmptyFont
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6752221853253126888
+--- !u!4 &4730829002217469619
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6993814274124772437}
+  m_GameObject: {fileID: 8706434919566097077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3924417771282529900
+--- !u!114 &8771531703593025164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6993814274124772437}
+  m_GameObject: {fileID: 8706434919566097077}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
@@ -61,6 +61,6 @@ MonoBehaviour:
   atlasName: 
   mReplacement: {fileID: 0}
   mSymbols: []
-  mDynamicFont: {fileID: 12800000, guid: 41b069695ebb9443882def9d7b39f19b, type: 3}
-  mDynamicFontSize: 32
+  mDynamicFont: {fileID: 12800000, guid: 76386c84ab920482e8205f32c3443324, type: 3}
+  mDynamicFontSize: 30
   mDynamicFontStyle: 0

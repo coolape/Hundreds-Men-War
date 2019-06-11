@@ -5,6 +5,8 @@ do
     require("public.CLLPool")
 
     BioUtl = {}
+
+    ---@type LuaB2InputStream
     local inputStreemPool
     local outputStreemPool
 
@@ -22,7 +24,8 @@ do
         BioUtl.init()
         --local os = LuaB2OutputStream.new()
         local os = outputStreemPool:borrow()
-        local status = pcall(BioOutputStream.writeObject, os, obj)
+        os:init()
+        local status, result = pcall(BioOutputStream.writeObject, os, obj)
         if status then
             local bytes = os:toBytes()
             os:release()
@@ -30,6 +33,7 @@ do
             outputStreemPool:retObj(os)
             return bytes
         else
+            os:release()
             outputStreemPool:retObj(os)
             print(result)
             return nil
@@ -47,11 +51,13 @@ do
         is:init(bytes)
         local status, result = pcall(BioInputStream.readObject, is)
         if status then
+            local readLen = is.pos - 1 -- 读取了多长
             is:release()
             --is = nil
             inputStreemPool:retObj(is)
-            return result
+            return result, readLen
         else
+            is:release()
             inputStreemPool:retObj(is)
             print(result)
             return nil
@@ -62,7 +68,8 @@ do
         BioUtl.init()
         --local os = LuaB2OutputStream.new()
         local os = outputStreemPool:borrow()
-        local status = pcall(BioOutputStream.writeInt, os, val)
+        os:init()
+        local status, result = pcall(BioOutputStream.writeInt, os, val)
         if status then
             local bytes = os:toBytes()
             os:release()
@@ -70,6 +77,7 @@ do
             outputStreemPool:retObj(os)
             return bytes
         else
+            os:release()
             outputStreemPool:retObj(os)
             print(result)
             return nil
@@ -87,7 +95,8 @@ do
         BioUtl.init()
         --local os = LuaB2OutputStream.new()
         local os = outputStreemPool:borrow()
-        local status = pcall(BioOutputStream.writeLong, os, val)
+        os:init()
+        local status, result = pcall(BioOutputStream.writeLong, os, val)
         if status then
             local bytes = os:toBytes()
             os:release()
@@ -95,6 +104,7 @@ do
             outputStreemPool:retObj(os)
             return bytes
         else
+            os:release()
             outputStreemPool:retObj(os)
             print(result)
             return nil

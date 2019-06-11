@@ -60,7 +60,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.990566, g: 0.39716092, b: 0.39716092, a: 1}
   mPivot: 4
   mWidth: 250
   mHeight: 100
@@ -80,8 +80,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_common_bt_red
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1029078044480556
@@ -321,14 +321,14 @@ MonoBehaviour:
   aspectRatio: 4.347826
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u786E\u5B9A"
   mFontSize: 45
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 1
+  mEffectStyle: 0
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
@@ -423,7 +423,7 @@ MonoBehaviour:
   aspectRatio: 114.2
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: 1212
   mFontSize: 50
   mFontStyle: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -699,7 +699,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.16748786, g: 0.9098039, b: 0, a: 1}
   mPivot: 4
   mWidth: 250
   mHeight: 100
@@ -719,8 +719,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_common_bt_blue_l3
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1678967605471768
@@ -901,7 +901,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -1009,8 +1009,10 @@ MonoBehaviour:
   isRefeshContentWhenEffectFinish: 0
   EffectRoot: {fileID: 0}
   effectType: 1
-  EffectList: []
-  frameName: 
+  EffectList:
+  - {fileID: 114767909858524840}
+  - {fileID: 114295895514243012}
+  frameName: Frame2
   frameObj: {fileID: 0}
 --- !u!114 &114767909858524840
 MonoBehaviour:
@@ -1296,14 +1298,14 @@ MonoBehaviour:
   aspectRatio: 4.347826
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u53D6\u6D88"
   mFontSize: 45
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 1
+  mEffectStyle: 0
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}

@@ -60,7 +60,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 1, b: 0, a: 1}
   mPivot: 4
   mWidth: 28
   mHeight: 28
@@ -80,8 +80,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_guest_checkbox_check
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1104956258154182
@@ -164,8 +164,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_guest_bg_checkbox
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1121151222151334
@@ -244,7 +244,7 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 0}
       field: 
-      name: 
+      name: go
     oneShot: 0
   checkSprite: {fileID: 0}
   checkAnimation: {fileID: 0}
@@ -383,7 +383,7 @@ MonoBehaviour:
   aspectRatio: 2
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u97F3\u6548"
   mFontSize: 40
   mFontStyle: 0
@@ -577,20 +577,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/HWPSetting.lua
+  luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/MSPSetting.lua
   isNeedBackplate: 1
-  destroyWhenHide: 1
+  destroyWhenHide: 0
   isNeedResetAtlase: 1
   isNeedMask4Init: 0
   isNeedMask4InitOnlyOnce: 1
   isHideWithEffect: 1
   isRefeshContentWhenEffectFinish: 0
   EffectRoot: {fileID: 0}
-  effectType: 0
+  effectType: 1
   EffectList:
   - {fileID: 114844522234101002}
   - {fileID: 114545897173708980}
-  frameName: 
+  frameName: Frame1
   frameObj: {fileID: 0}
 --- !u!114 &114844522234101002
 MonoBehaviour:
@@ -767,7 +767,7 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 0}
       field: 
-      name: 
+      name: go
     oneShot: 0
   checkSprite: {fileID: 0}
   checkAnimation: {fileID: 0}
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 0.9811321, b: 0.0357589, a: 1}
   mPivot: 4
   mWidth: 28
   mHeight: 28
@@ -1031,8 +1031,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_guest_checkbox_check
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1961512950076086
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   aspectRatio: 3
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u97F3\u4E50"
   mFontSize: 40
   mFontStyle: 0
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: public_guest_bg_checkbox
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0

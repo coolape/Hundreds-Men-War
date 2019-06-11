@@ -27,8 +27,6 @@ do
     function CLLPStart.setLuasAtBegainning()
         -- 取得数据配置
         require("cfg.DBCfg")
-        require("public.IDUtl")
-        require("public.IDConst")
         -- 网络
         Net.self:setLua()
         -- 资源释放时间
@@ -48,13 +46,8 @@ do
         --MyMain.self:invoke4Lua(CLLPStart.addShieldWords, 1)
 
         --//TODO:other lua scripts
-        require("net.NetProtoIslandClient")
-        require("public.IDLCameraMgr")
-        IDLCameraMgr.init()
-        require("city.IDLBuildingSize")
-        --IDLBuildingSize.init()
-        local worldmap = getCC(MyMain.self.transform, "worldmap", "CLBaseLua")
-        worldmap:setLua()
+        -- require("public.IDLCameraMgr")
+        -- IDLCameraMgr.init()
     end
 
     function CLLPStart.setData(pars)
@@ -130,7 +123,7 @@ do
                 end
                 ]]
                 hideHotWheel()
-            elseif cmd == NetProtoIsland.cmds.sendNetCfg then
+            elseif cmd == NetPtMonsters.cmds.sendNetCfg then
                 -- 服务器通知的网络相关配置，可以发送请求了
                 showHotWheel()
                 local uid = bio2Int(user.idx)
@@ -146,11 +139,10 @@ do
                     end
                 end
                 net:send(
-                    NetProtoIsland.send.login(uid, getChlCode(), Utl.uuid, MyCfg.self.isEditScene or __EditorMode__)
+                    NetPtMonsters.send.login(uid, getChlCode(), Utl.uuid, MyCfg.self.isEditScene or __EditorMode__)
                 )
-            elseif cmd == NetProtoIsland.cmds.login then
+            elseif cmd == NetPtMonsters.cmds.login then
                 hideHotWheel()
-                DateEx.init(bio2number(pars.systime))
                 ---- IAP 登陆成功后再初化iap
                 --local rt, err = pcall(KKChlIAP.init)
                 --if not rt then
@@ -185,7 +177,8 @@ do
     end
 
     function CLLPStart.doEnterGame()
-        IDUtl.chgScene({mode = GameMode.map})
+        -- IDUtl.chgScene({mode = GameMode.map})
+        --//TODO:
         local p2 = CLPanelManager.getPanel("PanelSplash")
         if (p2 ~= nil) then
             CLPanelManager.hidePanel(p2)

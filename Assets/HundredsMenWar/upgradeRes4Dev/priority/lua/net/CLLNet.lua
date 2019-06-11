@@ -1,8 +1,9 @@
 ﻿--- 网络下行数据调度器
 require("bio.BioUtl")
 require("net.NetProtoUsermgrClient")
+require("net.NetPtMonstersClient")
 CLLNet = {}
-local protoClient = protoClient
+local protoClient = NetPtMonsters
 
 local strLen = string.len
 local strSub = string.sub
@@ -144,11 +145,23 @@ function CLLNet.dispatch(map)
     end
 end
 
-function CLLNet.cacheData(cmd, data)
-    if protoClient == nil then
-        return
-    end
-    if cmd == protoClient.cmds.login then
+--数据缓存的function
+local cacheDataFuncs = {
+    [protoClient.cmds.sendNetCfg] = function(netData)
+        ---@type NetPtMonsters.RC_sendNetCfg
+        local data = netData
+        -- 初始化时间
+        local systime = bio2number(data.systime)
+        DateEx.init(systime)
+        ---@type CLLNetSerialize
+        local netSerialize = csSelf.luaTable
+        if netSerialize then
+            netSerialize.setCfg(data.netCfg)
+        end
+    end,
+    [protoClient.cmds.login] = function(netData)
+        ---@type NetPtMonsters.RC_login
+        local data = netData
         protoClient.__sessionID = bio2number(data.session)
         -- 初始化时间
         local systime = bio2number(data.systime)
@@ -165,6 +178,16 @@ function CLLNet.cacheData(cmd, data)
         curCity:initDockyardShips()
         IDDBCity.curCity = curCity
         --]]
+    end
+}
+
+function CLLNet.cacheData(cmd, netData)
+    if protoClient == nil then
+        return
+    end
+    local func = cacheDataFuncs[cmd]
+    if func then
+        func(netData)
     end
 end
 

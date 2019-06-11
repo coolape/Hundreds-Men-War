@@ -57,7 +57,12 @@ do
 
     -- 当加载好通用框的回调
     function CLLPLogin.onShowFrame(cs)
-        csSelf.frameObj:init({ title = "", panel = csSelf, hideClose = true, hideTitle = true })
+        ---@type BGFrame2Param
+        local d = {}
+        d.panel = csSelf
+        d.hideClose = true
+        d.hideTitle = true
+        csSelf.frameObj:init(d)
     end
 
     -- 刷新
@@ -86,11 +91,12 @@ do
     end
 
     -- 网络请求的回调；cmd：指命，succ：成功失败，msg：消息；paras：服务器下行数据
-    function CLLPLogin.procNetwork (cmd, succ, msg, paras)
+    function CLLPLogin.procNetwork(cmd, succ, msg, paras)
         if succ == NetSuccess then
-            if cmd == NetProtoUsermgr.cmds.loginAccountChannel
-                    or cmd == NetProtoUsermgr.cmds.loginAccount
-                    or cmd == NetProtoUsermgr.cmds.registAccount then
+            if
+                cmd == NetProtoUsermgr.cmds.loginAccountChannel or cmd == NetProtoUsermgr.cmds.loginAccount or
+                    cmd == NetProtoUsermgr.cmds.registAccount
+             then
                 hideHotWheel()
                 CLLPLogin.onLogin4Coolape(paras)
             elseif cmd == NetProtoUsermgr.cmds.getServerInfor then
@@ -121,13 +127,16 @@ do
         table.insert(deviceInfor, SystemInfo.operatingSystem)
         table.insert(deviceInfor, SystemInfo.maxTextureSize)
         showHotWheel()
-        CLLNet.httpPostUsermgr(NetProtoUsermgr.send.loginAccountChannel(uid,
+        CLLNet.httpPostUsermgr(
+            NetProtoUsermgr.send.loginAccountChannel(
+                uid,
                 CLCfgBase.self.appUniqueID,
                 getChlCode(),
                 Utl.uuid,
                 table.concat(deviceInfor, ","),
                 MyCfg.self.isEditScene or __EditorMode__
-        ))
+            )
+        )
     end
 
     function CLLPLogin.onLogin4Coolape(d, orgs)
@@ -165,36 +174,44 @@ do
             CLLPLogin.login(Utl.uuid, goName)
         elseif goName == "ButtonCoolape" then
             -- 登陆coolape的账号
-            getPanelAsy("PanelLoginCoolape", onLoadedPanelTT, { CLLPLogin.onLogin4Coolape, goName, isAutoLogin })
+            getPanelAsy("PanelLoginCoolape", onLoadedPanelTT, {CLLPLogin.onLogin4Coolape, goName, isAutoLogin})
         elseif goName == "ButtonFaceBook" then
             -- facebook登陆
             --showHotWheel()
             --KKChl.loginFaceBook(CLLPLogin.login, goName)
         elseif goName == "ButtonServer" then
-            getPanelAsy("PanelServers", onLoadedPanelTT, { CLLPLogin.setServer, server })
+            getPanelAsy("PanelServers", onLoadedPanelTT, {CLLPLogin.setServer, server})
         elseif goName == "ButtonEntry" then
             SetActive(uiobjs.ButtonEntry, false)
-            CLLNet.httpPostUsermgr(NetProtoUsermgr.send.getServerInfor(bio2number(server.idx)),
-                    function(content)
-                        if content == nil then
-                            SetActive(uiobjs.ButtonEntry, true)
-                            return
-                        end
-                        local server = content.server
-                        local state = bio2number(server.status)
-                        if state == 3 then
-                            -- 服务器停服了
-                            CLUIUtl.showConfirm(joinStr("[B75605]", Localization.Get("MsgServerIsMaintain"), "[-]"), nil)
-                            SetActive(uiobjs.ButtonEntry, true)
-                            return
-                        end
-                        hideTopPanel(csSelf)
-                        if oldServerIdx ~= bio2number(server.idx) then
-                            -- 保存所选的服务器
-                            CLLNet.httpPostUsermgr(NetProtoUsermgr.send.setEnterServer(bio2number(server.idx), bio2number(user.idx), CLCfgBase.self.appUniqueID))
-                        end
-                        Utl.doCallback(finishCallback, user, server)
-                    end)
+            CLLNet.httpPostUsermgr(
+                NetProtoUsermgr.send.getServerInfor(bio2number(server.idx)),
+                function(content)
+                    if content == nil then
+                        SetActive(uiobjs.ButtonEntry, true)
+                        return
+                    end
+                    local server = content.server
+                    local state = bio2number(server.status)
+                    if state == 3 then
+                        -- 服务器停服了
+                        CLUIUtl.showConfirm(joinStr("[B75605]", Localization.Get("MsgServerIsMaintain"), "[-]"), nil)
+                        SetActive(uiobjs.ButtonEntry, true)
+                        return
+                    end
+                    hideTopPanel(csSelf)
+                    if oldServerIdx ~= bio2number(server.idx) then
+                        -- 保存所选的服务器
+                        CLLNet.httpPostUsermgr(
+                            NetProtoUsermgr.send.setEnterServer(
+                                bio2number(server.idx),
+                                bio2number(user.idx),
+                                CLCfgBase.self.appUniqueID
+                            )
+                        )
+                    end
+                    Utl.doCallback(finishCallback, user, server)
+                end
+            )
         elseif goName == "ButtonXieyi" then
             --CLPanelManager.getPanelAsy("PanelRobotTest", onLoadedPanelTT, { MapEx.getString(user, "idx"), selectedServer })
         elseif goName == "ButtonSetting" then

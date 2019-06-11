@@ -295,6 +295,8 @@ do
     B2Int = CS.Coolape.B2Int
     ---@type Coolape.AngleEx
     AngleEx = CS.Coolape.AngleEx
+    ---@type Coolape.InvokeEx
+    InvokeEx = CS.Coolape.InvokeEx
     ---@type Coolape.CLMyGrid
     CLMyGrid = CS.Coolape.CLMyGrid
     ---@type Coolape.ReporterMessageReceiver

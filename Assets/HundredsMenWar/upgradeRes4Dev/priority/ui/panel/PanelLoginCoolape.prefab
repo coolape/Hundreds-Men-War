@@ -1432,7 +1432,7 @@ MonoBehaviour:
   isPause: 0
   luaPath: HundredsMenWar/upgradeRes/priority/lua/ui/panel/CLLPLoginCoolape.lua
   isNeedBackplate: 1
-  destroyWhenHide: 0
+  destroyWhenHide: 1
   isNeedResetAtlase: 1
   isNeedMask4Init: 0
   isNeedMask4InitOnlyOnce: 1
@@ -1440,7 +1440,8 @@ MonoBehaviour:
   isRefeshContentWhenEffectFinish: 0
   EffectRoot: {fileID: 0}
   effectType: 1
-  EffectList: []
+  EffectList:
+  - {fileID: 114020293821717226}
   frameName: 
   frameObj: {fileID: 0}
 --- !u!114 &114020293821717226

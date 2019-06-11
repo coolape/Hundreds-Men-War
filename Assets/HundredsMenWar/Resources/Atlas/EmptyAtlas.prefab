@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3280568450166342657
+--- !u!1 &5543402515513943407
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7897432200621493851}
-  - component: {fileID: 6991355390315801666}
+  - component: {fileID: 7301569333997030973}
+  - component: {fileID: 823288283847043082}
   m_Layer: 0
   m_Name: EmptyAtlas
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7897432200621493851
+--- !u!4 &7301569333997030973
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3280568450166342657}
+  m_GameObject: {fileID: 5543402515513943407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6991355390315801666
+--- !u!114 &823288283847043082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3280568450166342657}
+  m_GameObject: {fileID: 5543402515513943407}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
@@ -46,7 +46,7 @@ MonoBehaviour:
   material: {fileID: 0}
   mSprites: []
   mPixelSize: 1
-  mReplacement: {fileID: 0}
+  mReplacement: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
   mCoordinates: 0
   sprites: []
   _isBorrowSpriteMode: 1

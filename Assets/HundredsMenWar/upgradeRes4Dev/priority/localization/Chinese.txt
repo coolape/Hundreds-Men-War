@@ -1,4 +1,4 @@
-﻿Flag=Flag-CNF
+Flag=Flag-CNF
 Language=Chinese
 English=English
 Chinese=中文
@@ -40,7 +40,7 @@ MsgExitGame=[B75605]确定要退出游戏？[-]
 MsgOffline=网络抽疯了，让我抽它一巴掌！
 MsgCheckAppUpgradeFail=检测版本失败！
 MsgHadNewVerApp=亲，发现新版本，更新后体验更佳哦！
-MsgWelcome=[462306]亲爱的玩家，欢迎来到《海岛大作战2》，建立属于自己的海岛，征服七海，成为海上霸主！\nQQ官方群：[-][008000]927410247[-]
+MsgWelcome=[462306]亲爱的玩家，欢迎来到《萌怪大作战》，快来捕获可爱的小萌怪吧！\nQQ官方群：[-][008000]927410247[-]
 MsgServerIsMaintain=服务器正在维护中，请耐心等待，详细查看公告，谢谢您的支持！
 MsgOutofConnect=网络不通畅，确认是否正常联网！
 UserIllegal=账号只能包含英文、数字！

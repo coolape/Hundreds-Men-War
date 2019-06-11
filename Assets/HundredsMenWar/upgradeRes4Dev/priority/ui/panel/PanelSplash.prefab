@@ -71,7 +71,7 @@ MonoBehaviour:
   aspectRatio: 4.6
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: 100%
   mFontSize: 25
   mFontStyle: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123704370548140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 196, y: 0, z: 0}
+  m_LocalPosition: {x: 196, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4620199975982442}
@@ -293,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148308099803710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 196, y: 0, z: 0}
+  m_LocalPosition: {x: 196, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4717841133717966}
@@ -380,7 +380,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 0}
       field: 
-      name: 
+      name: go
     oneShot: 0
   foreground: {fileID: 0}
   rawValue: 1
@@ -571,7 +571,7 @@ MonoBehaviour:
   aspectRatio: 16.5
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "\u5728\u5546\u57CE\u53EF\u4EE5\u8D2D\u4E70\u597D\u591A\u725Bx\u7684\u4E1C\u4E1C\uFF0C\u8D85\u9177"
   mFontSize: 20
   mFontStyle: 0
@@ -625,7 +625,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394040978619580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -673,7 +673,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 0}
       field: 
-      name: 
+      name: go
     oneShot: 0
   foreground: {fileID: 0}
   rawValue: 1
@@ -927,7 +927,7 @@ MonoBehaviour:
   aspectRatio: 3.125
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: Version
   mFontSize: 32
   mFontStyle: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   aspectRatio: 7.3125
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: "[ffff00]QQ\u7FA4:[-]123456789"
   mFontSize: 32
   mFontStyle: 0
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   aspectRatio: 4.6
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 0}
+  mFont: {fileID: 114740051210877004, guid: a6e3a8f09dc964d1ea5e6f2402a30cd6, type: 3}
   mText: 100%
   mFontSize: 25
   mFontStyle: 0
@@ -1437,7 +1437,7 @@ Transform:
   m_GameObject: {fileID: 1880045120248158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4228491702010106}
   m_RootOrder: 3
@@ -1471,7 +1471,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.23429158, g: 0.5258888, b: 0.764151, a: 1}
   mPivot: 4
   mWidth: 1024
   mHeight: 768
@@ -1491,8 +1491,8 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: atlasAllReal
-  mAtlas: {fileID: 0}
-  mSpriteName: loading_loadingbg
+  mAtlas: {fileID: 11400000, guid: 5ceb49909c25f471fb6d136b24c49d48, type: 3}
+  mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
 --- !u!1 &1899980871509608
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   atlasName: EmptyAtlas
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114591327819342896, guid: 8c738593bc2ec45f181d374da16abfeb, type: 3}
   mSpriteName: public__empty
   mFillCenter: 1
   isGrayMode: 0
