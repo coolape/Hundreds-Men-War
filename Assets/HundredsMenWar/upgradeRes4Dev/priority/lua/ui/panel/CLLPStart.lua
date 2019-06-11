@@ -27,6 +27,8 @@ do
     function CLLPStart.setLuasAtBegainning()
         -- 取得数据配置
         require("cfg.DBCfg")
+        require("public.GameUtl")
+        
         -- 网络
         Net.self:setLua()
         -- 资源释放时间
@@ -109,8 +111,9 @@ do
 
     -- 连接服务器相关处理
     function CLLPStart.connectServer()
-        showHotWheel()
-        Net.self:connect(selectedServer.host, bio2number(selectedServer.port))
+        -- showHotWheel()
+        -- Net.self:connect(selectedServer.host, bio2number(selectedServer.port))
+        CLLPStart.doEnterGame()
     end
 
     -- 处理网络接口
@@ -177,8 +180,8 @@ do
     end
 
     function CLLPStart.doEnterGame()
-        -- IDUtl.chgScene({mode = GameMode.map})
-        --//TODO:
+        GameUtl.chgScene({mode = GameMode.battle})
+
         local p2 = CLPanelManager.getPanel("PanelSplash")
         if (p2 ~= nil) then
             CLPanelManager.hidePanel(p2)

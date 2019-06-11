@@ -1533,7 +1533,7 @@ MonoBehaviour:
   host4Test1: 127.0.0.1
   host4Test2: 
   serializeluaPath: HundredsMenWar/upgradeRes/priority/lua/net/CLLNetSerialize.lua
-  gatePort: 0
+  gatePort: 8801
   httpPort: 0
   httpFunc: 
 --- !u!114 &1506370446

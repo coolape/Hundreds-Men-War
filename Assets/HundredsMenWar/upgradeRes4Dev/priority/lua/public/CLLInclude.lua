@@ -4,7 +4,8 @@ do
     -- 重写require
     local localReq = require
     function require(path)
-        local ret, result = pcall(localReq, path)--("toolkit.KKWhiteList")
+        local ret, result = pcall(localReq, path)
+         --("toolkit.KKWhiteList")
         if not ret then
             print("err:" .. result)
             return nil
@@ -342,9 +343,10 @@ do
 
     -- 模式
     GameMode = {
-        city = 0,
-        map = 1,
-        battle = 2
+        none = 0,
+        city = 1,
+        map = 2,
+        battle = 3
     }
 
     -- 角色的状态
@@ -355,11 +357,11 @@ do
         searchTarget = 4,
         attack = 5,
         waitAttack = 6,
-        dizzy = 7,
+        dizzy = 7
     }
 
     -------------------------------------------------------
-    local chnCfg -- 安装包配置
+    local chnCfg  -- 安装包配置
     function getChlCfg()
         if chnCfg ~= nil then
             return chnCfg
