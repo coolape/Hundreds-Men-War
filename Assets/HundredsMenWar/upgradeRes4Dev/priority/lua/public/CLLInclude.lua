@@ -302,6 +302,8 @@ do
     CLMyGrid = CS.Coolape.CLMyGrid
     ---@type Coolape.ReporterMessageReceiver
     ReporterMessageReceiver = CS.ReporterMessageReceiver
+    ---@type Coolape.CLGrid
+    CLGrid = CS.Coolape.CLGrid
     -------------------------------------------------------
     --
     ---@type MyMain

@@ -171,8 +171,8 @@ public static class XluaGenCodeConfig
 		typeof(TweenProgress),
 		typeof(B2Int),
 		typeof(AngleEx),
-		typeof(CLGridPoints),
-
+        typeof(CLGridPoints),
+        typeof(CLGrid),
 		//==========================
 		typeof(MyMain),
 		typeof(MyCfg),

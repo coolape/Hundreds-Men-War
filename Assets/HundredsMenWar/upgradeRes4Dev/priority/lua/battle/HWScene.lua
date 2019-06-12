@@ -1,6 +1,8 @@
 HWScene = {}
-
+HWScene.offset4Tile = Vector3.zero
+local grid
 local lookAtTarget = MyCfg.self.lookAtTarget
+
 -- 重新加载海
 function IDWorldMap.onLoadOcena(name, obj, orgs)
     HWScene.ocean = obj:GetComponent("MirrorReflection")
@@ -28,11 +30,22 @@ function HWScene._init()
     HWScene.gameObject = GameObject("Scene")
     HWScene.transform = HWScene.gameObject.transform
 
-    IDWorldMap.onLoadOcena()
+    local go = GameObject("grid")
+    go.transform.parent = HWScene.transform
+    HWScene.grid = go:AddComponent(typeof(CLGrid))
+    HWScene.grid.gridLineHight = HWScene.offset4Tile.y
+    grid = HWScene.grid.grid
+
+    HWScene.onLoadOcena()
 end
 
 function HWScene.init(data, callback, progressCB)
     HWScene._init()
+end
+
+
+function HWScene.clean()
+    
 end
 
 return HWScene
