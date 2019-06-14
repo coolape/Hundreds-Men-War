@@ -1371,6 +1371,9 @@ MonoBehaviour:
   hotUpgrade4EachServer: 0
   isDirectEntry: 0
   default_UID: 
+  lookAtTarget: {fileID: 1573943425}
+  mainCamera: {fileID: 1088048193}
+  uiCamera: {fileID: 555993771}
 --- !u!4 &1417759632
 Transform:
   m_ObjectHideFlags: 0
@@ -1534,8 +1537,6 @@ MonoBehaviour:
   host4Test2: 
   serializeluaPath: HundredsMenWar/upgradeRes/priority/lua/net/CLLNetSerialize.lua
   gatePort: 8801
-  httpPort: 0
-  httpFunc: 
 --- !u!114 &1506370446
 MonoBehaviour:
   m_ObjectHideFlags: 0

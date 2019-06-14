@@ -7,8 +7,8 @@ function HWBattle._init()
         return
     end
     local go = GameObject("battleRoot")
-    HWBattle.csSelf = go:AddComponent(CLBaseLua)
-    HWBattle.csSelf.luaTable = CLLCity
+    HWBattle.csSelf = go:AddComponent(typeof(CLBaseLua))
+    HWBattle.csSelf.luaTable = HWBattle
     csSelf = HWBattle.csSelf
     transform = go.transform
     transform.parent = MyMain.self.transform
