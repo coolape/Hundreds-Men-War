@@ -1,7 +1,8 @@
 HWScene = {}
-require("battle.IDLGridTileSide")
+local IDLGridTileSide = require("battle.IDLGridTileSide")
 
 HWScene.offset4Tile = Vector3.zero
+HWScene.selectedUnit = nil
 local transform
 local grid
 local lookAtTarget = MyCfg.self.lookAtTarget
@@ -44,17 +45,21 @@ function HWScene._init()
     HWScene.grid = go:AddComponent(typeof(CLGrid))
     HWScene.grid.gridLineHight = HWScene.offset4Tile.y
     grid = HWScene.grid.grid
-
-    HWScene.grid.numRows = 5
-    HWScene.grid.numCols = 15
-    HWScene.grid.numGroundRows = 5
-    HWScene.grid.numGroundCols = 15
+    local rows = 15
+    local cols = 15
+    HWScene.grid.numRows = rows
+    HWScene.grid.numCols = cols
+    HWScene.grid.numGroundRows = rows
+    HWScene.grid.numGroundCols = cols
     HWScene.grid.cellSize = 2
-    HWScene.grid.transform.localPosition = Vector3(-5 * 2 / 2, 0, -15 * 2 / 2)
+    HWScene.grid.transform.localPosition = Vector3(-rows * 2 / 2, 0, -cols * 2 / 2)
     HWScene.grid.showGrid = false
     HWScene.grid.showGridRange = true
-    HWScene.grid:showRect()
     HWScene.grid:init()
+    HWScene.grid:showRect()
+
+    local uvWave = HWScene.gameObject:AddComponent(typeof(CS.Wave))
+    IDLGridTileSide.init(grid, uvWave)
 
     -- 加载水
     CLThingsPool.borrowObjAsyn("OceanLow", HWScene.onLoadOcena)
@@ -72,8 +77,13 @@ end
 ---@public 加载地块
 function HWScene.loadTiles(cb)
     local list = {}
+    local row, col
     for i = 0, grid.NumberOfCells - 1 do
-        table.insert(list, {pos = i})
+        row = grid:GetRow(i)
+        col = grid:GetColumn(i)
+        if row ~= 0 and row ~= 1 and row ~= 2 and row ~= 12 and row ~= 13 and row ~= 14 then
+            table.insert(list, {pos = number2bio(i)})
+        end
     end
     HWScene.totalTile = #list
     if HWScene.totalTile == 0 then
@@ -96,17 +106,17 @@ function HWScene.onLoadTile(name, obj, orgs)
     local list = orgs[2]
     local cb = orgs[3]
     local d = list[i]
-    local index = d.pos
+    local index = bio2number(d.pos)
     obj.transform.parent = transform
     obj.transform.localScale = Vector3.one
-    obj.transform.position = grid:GetCellPosition(index) + HWScene.offset4Tile
+    obj.transform.position = grid:GetCellCenter(index) + HWScene.offset4Tile
     SetActive(obj, true)
     local index2 = grid:GetCellIndex(obj.transform.position)
     HWScene.refreshGridState(index2, 1, true, gridState4Tile)
 
     local tile = obj:GetComponent("CLCellLua")
     tile:init(d, nil)
-    tiles[bio2number(d.idx)] = tile.luaTable
+    tiles[bio2number(d.pos)] = tile.luaTable
 
     Utl.doCallback(progressCallback, HWScene.totalTile, i)
     if i == #list then
@@ -138,6 +148,7 @@ function HWScene.clean()
         SetActive(v.gameObject, false)
     end
     tiles = {}
+    IDLGridTileSide.clean()
 end
 
 return HWScene

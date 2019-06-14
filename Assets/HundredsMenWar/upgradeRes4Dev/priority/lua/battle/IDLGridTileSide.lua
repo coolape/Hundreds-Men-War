@@ -134,12 +134,12 @@ end
 
 function IDLGridTileSide.startSetSides(orgs)
     selectedTileState = {}
-    if IDMainCity.selectedUnit and IDMainCity.selectedUnit.isTile then
+    if HWScene.selectedUnit and HWScene.selectedUnit.isTile then
         -- 选中状态的地块是没有记录地块状态的，所以临时记录一下
-        local tile = IDMainCity.selectedUnit
+        local tile = HWScene.selectedUnit
         local center = tile.getPosIndex()
-        if (IDMainCity.isSizeInFreeCell(center, tile.size, false, true)) then
-            local list = IDMainCity.grid:getOwnGrids(center, tile.size)
+        if (HWScene.isSizeInFreeCell(center, tile.size, false, true)) then
+            local list = HWScene.grid:getOwnGrids(center, tile.size)
             local count = list.Count
             for i = 0, count - 1 do
                 selectedTileState[NumEx.getIntPart(list[i])] = true
@@ -147,7 +147,7 @@ function IDLGridTileSide.startSetSides(orgs)
         end
     end
 
-    cache.gridState4Tile = IDMainCity.getState4Tile()
+    cache.gridState4Tile = HWScene.getState4Tile()
     local callback = orgs[1]
     local progressCB = orgs[2]
     local imm = orgs[3]
@@ -156,7 +156,7 @@ function IDLGridTileSide.startSetSides(orgs)
 
     -- 准备数据
     cache.tileList = {}
-    local tiles = IDMainCity.getTiles()
+    local tiles = HWScene.getTiles()
     for k, tile in pairs(tiles) do
         table.insert(cache.tileList, tile)
     end
@@ -216,8 +216,8 @@ end
 
 ---@public 处理一个地块的四边，left,right,up,down
 function IDLGridTileSide.procOneCellSide(tile, callback, orgs, imm)
-    if tile == IDMainCity.selectedUnit then
-        if (not IDMainCity.isSizeInFreeCell(tile.getPosIndex(), tile.size, false, true)) then
+    if tile == HWScene.selectedUnit then
+        if (not HWScene.isSizeInFreeCell(tile.getPosIndex(), tile.size, false, true)) then
             if callback then
                 callback(orgs)
             end
@@ -466,8 +466,8 @@ end
 
 ---@public 处理一个地块的四个角，leftUp, leftDown, rightUp, rightDown
 function IDLGridTileSide.procOneCellSideAngle(tile, callback, orgs, imm)
-    if tile == IDMainCity.selectedUnit then
-        if (not IDMainCity.isSizeInFreeCell(tile.getPosIndex(), tile.size, false, true)) then
+    if tile == HWScene.selectedUnit then
+        if (not HWScene.isSizeInFreeCell(tile.getPosIndex(), tile.size, false, true)) then
             if callback then
                 callback(orgs)
             end
@@ -1121,11 +1121,11 @@ function IDLGridTileSide.onLoadSide(name, obj, orgs)
         printe("get tile side is nil. ==" .. name)
         return
     end
-    obj.transform.parent = IDMainCity.transform
+    obj.transform.parent = HWScene.transform
     obj.transform.localScale = Vector3.one
     obj.transform.localEulerAngles = Vector3.zero
     if name == SidesName.TileSideFour then
-        pos = pos + IDMainCity.offset4Tile
+        pos = pos + HWScene.offset4Tile
     end
     obj.transform.position = pos
     SetActive(obj, true)
