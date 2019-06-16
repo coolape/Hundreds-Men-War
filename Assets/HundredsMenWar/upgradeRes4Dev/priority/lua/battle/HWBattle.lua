@@ -18,7 +18,7 @@ end
 
 function HWBattle.init(data, callback, progressCB)
     HWBattle._init()
-    HWScene.init()
+    HWScene.init(data, callback, progressCB)
 end
 
 return HWBattle

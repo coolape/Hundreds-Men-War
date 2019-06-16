@@ -27,7 +27,7 @@ function cell.show(go, data)
 end
 
 function cell.getPosIndex()
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
     local index = grid:GetCellIndex(cell.transform.position)
     return index
 end
@@ -42,7 +42,7 @@ function cell.OnClick()
         CLLBattle.onClickSomeObj(cell, cell.transform.position)
     else
         --SoundEx.playSound(self.attr.SelectSound, 1, 1)
-        IDMainCity.onClickTile(cell)
+        HWScene.onClickTile(cell)
     end
 end
 
@@ -50,7 +50,7 @@ function cell.OnPress(go, isPress)
     if (not cell.canClick) then
         return
     end
-    if (IDMainCity.selectedUnit ~= cell) then
+    if (HWScene.selectedUnit ~= cell) then
         return
     end
     if (MyCfg.mode == GameMode.battle) then
@@ -58,26 +58,26 @@ function cell.OnPress(go, isPress)
         CLLBattle.onPressRole(isPress, cell, cell.transform.position)
     else
         if (isPress) then
-            IDMainCity.setOtherUnitsColiderState(cell, false)
+            HWScene.setOtherUnitsColiderState(cell, false)
             CLUIDrag4World.self.enabled = false  --不可托动屏幕
         else
             cell.isDraged = false
 
             cell.jump()
-            local grid = IDMainCity.getGrid()
-            IDMainCity.grid:hide() -- 网格不显示
+            local grid = HWScene.getGrid()
+            HWScene.grid:hide() -- 网格不显示
             local moved = false
             local index = grid:GetCellIndex(cell.transform.position)
-            if (IDMainCity.isSizeInFreeCell(index, cell.size, false, true)) then
+            if (HWScene.isSizeInFreeCell(index, cell.size, false, true)) then
                 moved = (cell.gridIndex ~= index)
                 cell.gridIndex = index
-                IDMainCity.setOtherUnitsColiderState(nil, true)
+                HWScene.setOtherUnitsColiderState(nil, true)
 
                 IDLCameraMgr.setPostProcessingProfile("normal")
                 NGUITools.SetLayer(cell.gameObject, LayerMask.NameToLayer("Tile"))
             end
             -- 通知主城有释放建筑
-            IDMainCity.onReleaseTile(cell, moved)
+            HWScene.onReleaseTile(cell, moved)
             --cell.csSelf:invoke4Lua("setScreenCanDrag", 0.2)
             CLUIDrag4World.self.enabled = true  --可托动屏幕
         end
@@ -85,18 +85,18 @@ function cell.OnPress(go, isPress)
 end
 
 function cell.OnDrag(go, delta)
-    if (IDMainCity.selectedUnit ~= cell) then
+    if (HWScene.selectedUnit ~= cell) then
         return
     end
     if not cell.isDraged then
-        IDMainCity.grid:reShow(cell.onShowingGrid) --显示网格
+        HWScene.grid:reShow(cell.onShowingGrid) --显示网格
         IDLCameraMgr.setPostProcessingProfile("gray")
         NGUITools.SetLayer(cell.csSelf.gameObject, LayerMask.NameToLayer("Top"))
-        IDMainCity.gridTileSidePorc.clean()
+        HWScene.gridTileSidePorc.clean()
     end
     cell.isDraged = true
 
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
 
     local inpos = MyMainCamera.lastTouchPosition
     inpos = Vector3(inpos.x, inpos.y, 0)
@@ -118,13 +118,13 @@ function cell.OnDrag(go, delta)
         else
             newPos = grid:GetCellCenter(index)
         end
-        newPos = newPos + IDMainCity.offset4Tile
+        newPos = newPos + HWScene.offset4Tile
         trf.position = newPos
         if cell.shadow then
             cell.shadow.transform.position = trf.position - Vector3.up * 5
         end
 
-        local isOK = IDMainCity.isSizeInFreeCell(index, cell.size, false, true)
+        local isOK = HWScene.isSizeInFreeCell(index, cell.size, false, true)
         newPos.y = newPos.y + 0.1
         --IDLBuildingSize.show(cell.size, isOK and Color.green or Color.red, newPos)
         --IDLBuildingSize.setLayer("Top")
@@ -148,7 +148,7 @@ end
 
 function cell.onShowingGrid(...)
     if (not cell.isDraged) then
-        IDMainCity.hideGrid() --显示网格
+        HWScene.hideGrid() --显示网格
     end
 end
 
@@ -183,7 +183,7 @@ end
 
 ---@public 取得四边的index
 function cell.getSidesIndex()
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
     local index = grid:GetCellIndex(cell.transform.position)
     local x = grid:GetColumn(index)
     local y = grid:GetRow(index)
@@ -203,7 +203,7 @@ function cell.getSidesIndex()
 end
 
 function cell.getSidesAngleIndex()
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
     local index = grid:GetCellIndex(cell.transform.position)
     local x = grid:GetColumn(index)
     local y = grid:GetRow(index)

@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "Assets/HundredsMenWar"
+		},
+		{
+			"path": "UnityAPI"
 		}
 	]
 }

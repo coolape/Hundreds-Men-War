@@ -1,7 +1,7 @@
 HWScene = {}
 local IDLGridTileSide = require("battle.IDLGridTileSide")
-
-HWScene.offset4Tile = Vector3.zero
+HWScene.gridTileSidePorc = IDLGridTileSide
+HWScene.offset4Tile = Vector3.up * 0.3
 HWScene.selectedUnit = nil
 local transform
 local grid
@@ -45,14 +45,14 @@ function HWScene._init()
     HWScene.grid = go:AddComponent(typeof(CLGrid))
     HWScene.grid.gridLineHight = HWScene.offset4Tile.y
     grid = HWScene.grid.grid
-    local rows = 15
-    local cols = 15
+    local rows = 40
+    local cols = 40
     HWScene.grid.numRows = rows
     HWScene.grid.numCols = cols
     HWScene.grid.numGroundRows = rows
     HWScene.grid.numGroundCols = cols
-    HWScene.grid.cellSize = 2
-    HWScene.grid.transform.localPosition = Vector3(-rows * 2 / 2, 0, -cols * 2 / 2)
+    HWScene.grid.cellSize = 1
+    HWScene.grid.transform.localPosition = Vector3(-rows / 2, 0, -cols / 2)
     HWScene.grid.showGrid = false
     HWScene.grid.showGridRange = true
     HWScene.grid:init()
@@ -81,8 +81,10 @@ function HWScene.loadTiles(cb)
     for i = 0, grid.NumberOfCells - 1 do
         row = grid:GetRow(i)
         col = grid:GetColumn(i)
-        if row ~= 0 and row ~= 1 and row ~= 2 and row ~= 12 and row ~= 13 and row ~= 14 then
-            table.insert(list, {pos = number2bio(i)})
+        if row > 6 and row <= 16 and ((col > 16 and col <= 28) or (col > 2 and col < 12)) then
+            if row % 2 == 0 and col % 2 == 0 then
+                table.insert(list, {pos = number2bio(i)})
+            end
         end
     end
     HWScene.totalTile = #list
@@ -109,10 +111,10 @@ function HWScene.onLoadTile(name, obj, orgs)
     local index = bio2number(d.pos)
     obj.transform.parent = transform
     obj.transform.localScale = Vector3.one
-    obj.transform.position = grid:GetCellCenter(index) + HWScene.offset4Tile
+    obj.transform.position = grid:GetCellPosition(index) + HWScene.offset4Tile
     SetActive(obj, true)
     local index2 = grid:GetCellIndex(obj.transform.position)
-    HWScene.refreshGridState(index2, 1, true, gridState4Tile)
+    HWScene.refreshGridState(index2, 2, true, gridState4Tile)
 
     local tile = obj:GetComponent("CLCellLua")
     tile:init(d, nil)
@@ -136,7 +138,28 @@ function HWScene.refreshGridState(center, size, val, gridstate)
     end
 end
 
+function HWScene.getState4Tile()
+    return gridState4Tile
+end
+function HWScene.getTiles()
+    return tiles
+end
+
+function HWScene.getGrid()
+    return grid
+end
+function HWScene.onClickTile(tile)
+end
+
 function HWScene.onClickOcean()
+end
+
+function HWScene.setOtherUnitsColiderState(target, activeCollider)
+    for k, v in pairs(tiles) do
+        if v ~= target then
+            v.setCollider(activeCollider)
+        end
+    end
 end
 
 function HWScene.clean()
