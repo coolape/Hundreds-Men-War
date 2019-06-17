@@ -314,6 +314,7 @@ do
     MyCfg = CS.MyCfg
     ---@type MirrorReflection
     MirrorReflection = CS.MirrorReflection
+    CameraMgr = CS.CameraMgr
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")

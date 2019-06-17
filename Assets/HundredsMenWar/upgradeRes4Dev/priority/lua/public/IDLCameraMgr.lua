@@ -9,10 +9,10 @@ local profiles = {}
 
 -- 初始化，只会调用一次
 function IDLCameraMgr.init()
-    IDLCameraMgr.smoothFollow = MyCfg.self.mainCamera:GetComponent("CLSmoothFollow")
-    csSelf.subpostprocessing.enabled = false
-
     CameraMgr.self:setLua()
+    IDLCameraMgr.smoothFollow = csSelf.maincamera:GetComponent("CLSmoothFollow")
+
+    -- csSelf.subpostprocessing.enabled = false
     -- IDLCameraMgr.getProfile(
     --     "normal",
     --     function()

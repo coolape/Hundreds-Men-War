@@ -72,7 +72,7 @@ function CLLPSceneManager.gotoBattle()
     Time.fixedDeltaTime = 0.02
     -- Turn off v-sync
     QualitySettings.vSyncCount = 0
-    Application.targetFrameRate = 30
+    Application.targetFrameRate = 60
 
     if dragSetting then
         dragSetting.isLimitCheckStrict = false
@@ -90,7 +90,7 @@ function CLLPSceneManager.gotoBattle()
     end
 
     smoothFollow.distance = 5
-    smoothFollow.height = 5
+    smoothFollow.height = 10
     HWBattle.init(mData, CLLPSceneManager.onLoadBattle, CLLPSceneManager.onProgress)
 end
 
