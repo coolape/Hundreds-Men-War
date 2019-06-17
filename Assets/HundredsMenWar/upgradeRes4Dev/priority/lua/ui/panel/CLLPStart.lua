@@ -28,6 +28,7 @@ do
         -- 取得数据配置
         require("cfg.DBCfg")
         require("public.GameUtl")
+        require("public.IDLCameraMgr")
         
         -- 网络
         Net.self:setLua()
@@ -36,6 +37,8 @@ do
             CLAssetsManager.self.timeOutSec4Realse = 10
         end
 
+        IDLCameraMgr.init()
+        
         if ReporterMessageReceiver.self and ReporterMessageReceiver.self.gameObject then
             if KKWhiteList.isWhiteName() then
                 ReporterMessageReceiver.self.gameObject:SetActive(true)

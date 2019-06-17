@@ -88,6 +88,8 @@ do
     Path = CS.System.IO.Path
     ---@type System.IO.MemoryStream
     MemoryStream = CS.System.IO.MemoryStream
+    ---@type UnityEngine.QualitySettings
+    QualitySettings = CS.UnityEngine.QualitySettings
 
     ---@type UICamera
     UICamera = CS.UICamera

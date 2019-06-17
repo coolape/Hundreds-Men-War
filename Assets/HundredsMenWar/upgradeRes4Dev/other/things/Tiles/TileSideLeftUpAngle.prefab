@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2712648949252589338}
   - component: {fileID: 4801261251227494492}
   - component: {fileID: 8572354706319800252}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TileSideLeftUpAngleWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 119459575114163595}
   - component: {fileID: 7783165912354068714}
   - component: {fileID: 8864820075363244248}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: TileSideLeftUpAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

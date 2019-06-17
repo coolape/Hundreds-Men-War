@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5310655412997170066}
   - component: {fileID: 7543076629383895290}
   - component: {fileID: 5648438641467827492}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: TileSideLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8424435926454480992}
   - component: {fileID: 6906150153886841750}
   - component: {fileID: 5179175441831313587}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TileSideLeftWave1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

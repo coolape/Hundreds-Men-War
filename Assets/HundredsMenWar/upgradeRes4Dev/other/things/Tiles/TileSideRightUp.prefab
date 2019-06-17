@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2632472317991020909}
   - component: {fileID: 4992155170295944099}
   - component: {fileID: 3204882623186682580}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: TileSideRightUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 563878647960189928}
   - component: {fileID: 1554634547922503812}
   - component: {fileID: 7877741618732334458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TileSideRightUpWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}

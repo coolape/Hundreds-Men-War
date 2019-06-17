@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1799108151354977959}
   - component: {fileID: 389511078974046762}
   - component: {fileID: 8474506293901027059}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: TileSideFour
   m_TagString: Untagged
   m_Icon: {fileID: 0}

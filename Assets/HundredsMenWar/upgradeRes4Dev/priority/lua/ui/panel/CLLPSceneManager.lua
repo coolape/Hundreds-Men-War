@@ -2,6 +2,13 @@
 CLLPSceneManager = {}
 require("battle.HWBattle")
 
+---@type UnityEngine.Transform
+local lookAtTarget = MyCfg.self.lookAtTarget
+---@type CLUIDrag4World
+local dragSetting = CLUIDrag4World.self
+---@type IDLCameraMgr
+local smoothFollow = IDLCameraMgr.smoothFollow
+
 local csSelf = nil
 local transform = nil
 local mData
@@ -62,6 +69,28 @@ function CLLPSceneManager.hideSelfOnKeyBack()
 end
 
 function CLLPSceneManager.gotoBattle()
+    Time.fixedDeltaTime = 0.02
+    -- Turn off v-sync
+    QualitySettings.vSyncCount = 0
+    Application.targetFrameRate = 30
+
+    if dragSetting then
+        dragSetting.isLimitCheckStrict = false
+        dragSetting.canMove = true
+        dragSetting.canRotation = true
+        dragSetting.canScale = true
+        dragSetting.scaleMini = 7
+        dragSetting.scaleMax = 20
+        dragSetting.scaleHeightMini = 10
+        dragSetting.scaleHeightMax = 100
+        dragSetting.viewRadius = 65
+        dragSetting.dragMovement = Vector3.one
+         -- * 0.4
+        dragSetting.scaleSpeed = 1
+    end
+
+    smoothFollow.distance = 5
+    smoothFollow.height = 5
     HWBattle.init(mData, CLLPSceneManager.onLoadBattle, CLLPSceneManager.onProgress)
 end
 

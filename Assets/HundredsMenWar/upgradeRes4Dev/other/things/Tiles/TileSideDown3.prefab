@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5764878019801614438}
   - component: {fileID: 6736027201605652315}
   - component: {fileID: 1987805733573312431}
-  m_Layer: 14
+  m_Layer: 12
   m_Name: TileSideDown3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8948252002119741057}
   - component: {fileID: 2364163315757599665}
   - component: {fileID: 758206674350613827}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TileSideDownWave3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
