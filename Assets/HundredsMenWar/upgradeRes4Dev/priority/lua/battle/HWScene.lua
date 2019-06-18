@@ -45,7 +45,7 @@ function HWScene._init()
     HWScene.grid = go:AddComponent(typeof(CLGrid))
     HWScene.grid.gridLineHight = HWScene.offset4Tile.y
     grid = HWScene.grid.grid
-    local rows = 40
+    local rows = 20
     local cols = 40
     HWScene.grid.numRows = rows
     HWScene.grid.numCols = cols
@@ -68,21 +68,30 @@ end
 function HWScene.init(data, callback, progressCB)
     progressCallback = progressCB
     HWScene._init()
-    HWScene.loadTiles(callback)
+    HWScene.callback = callback
+    HWScene.loadTiles(HWScene.onFinishLoadTiles)
     -- 屏幕拖动代理
     drag4World.onDragMoveDelegate = HWScene.onDragMove
     drag4World.onDragScaleDelegate = HWScene.onScaleGround
 end
 
+function HWScene.onFinishLoadTiles()
+    -- A*
+    
+    if HWScene.callback then
+        HWScene.callback()
+    end
+end
+
 ---@public 加载地块
 function HWScene.loadTiles(cb)
     local list = {}
-    local row, col
+    local x, y
     for i = 0, grid.NumberOfCells - 1 do
-        row = grid:GetRow(i)
-        col = grid:GetColumn(i)
-        if row > 6 and row <= 16 and ((col > 16 and col <= 28) or (col > 2 and col < 12)) then
-            if row % 2 == 0 and col % 2 == 0 then
+        x = grid:GetX(i)
+        y = grid:GetY(i)
+        if x > 2 and x < grid.numRows - 2 and y > 2 and y < grid.numCols - 2 then
+            if x % 2 == 0 and y % 2 == 0 then
                 table.insert(list, {pos = number2bio(i)})
             end
         end

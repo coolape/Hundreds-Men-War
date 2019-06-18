@@ -120,6 +120,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10854657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10854658}
+  - component: {fileID: 10854659}
+  m_Layer: 0
+  m_Name: MyA*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &10854658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10854657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 915666810}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &10854659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10854657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f586ea662f494e128cefbccf74c0bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numRows: 10
+  numCols: 10
+  cellSize: 1
+  numNeighbours: 1
+  scanType: 1
+  obstructMask:
+    serializedVersion: 2
+    m_Bits: 0
+  passableMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  rayDis4Scan: 1
+  rayDirection: 0
+  isAutoScan: 1
+  isFilterPathByRay: 0
+  isSoftenPath: 0
+  softenPathType: 0
+  softenFactor: 3
+  showGrid: 1
+  showObstruct: 1
+  isIninted: 0
+  originPos: {x: 0, y: 0, z: 0}
 --- !u!1 &54683964
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +865,7 @@ Transform:
   m_Children:
   - {fileID: 1573943425}
   - {fileID: 1088048194}
+  - {fileID: 10854658}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
