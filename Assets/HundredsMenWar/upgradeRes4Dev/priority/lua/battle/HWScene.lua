@@ -2,6 +2,7 @@ HWScene = {}
 local IDLGridTileSide = require("battle.IDLGridTileSide")
 HWScene.gridTileSidePorc = IDLGridTileSide
 HWScene.offset4Tile = Vector3.up * 0.3
+HWScene.offset4Building = Vector3.up * 0.3
 HWScene.selectedUnit = nil
 local transform
 local grid
@@ -58,6 +59,11 @@ function HWScene._init()
     HWScene.grid:init()
     HWScene.grid:showRect()
 
+    CLAStarPathSearch.current.numRows = rows
+    CLAStarPathSearch.current.numCols = cols
+    CLAStarPathSearch.current.cellSize = 1
+    CLAStarPathSearch.current:init(Vector3(-rows / 2, 0, -cols / 2))
+
     local uvWave = HWScene.gameObject:AddComponent(typeof(CS.Wave))
     IDLGridTileSide.init(grid, uvWave)
 
@@ -76,8 +82,6 @@ function HWScene.init(data, callback, progressCB)
 end
 
 function HWScene.onFinishLoadTiles()
-    -- A*
-    
     if HWScene.callback then
         HWScene.callback()
     end
@@ -90,7 +94,12 @@ function HWScene.loadTiles(cb)
     for i = 0, grid.NumberOfCells - 1 do
         x = grid:GetX(i)
         y = grid:GetY(i)
-        if x > 2 and x < grid.numRows - 2 and y > 2 and y < grid.numCols - 2 then
+        if
+            ((x > 2 and x < HWScene.grid.numCols / 2 - 4) or
+                (x > HWScene.grid.numCols / 2 + 4 and x < HWScene.grid.numCols - 2)) and
+                y > 2 and
+                y < HWScene.grid.numRows - 2
+         then
             if x % 2 == 0 and y % 2 == 0 then
                 table.insert(list, {pos = number2bio(i)})
             end
@@ -168,6 +177,18 @@ function HWScene.setOtherUnitsColiderState(target, activeCollider)
         if v ~= target then
             v.setCollider(activeCollider)
         end
+    end
+end
+
+function HWScene.placeBuilding(building, id, index)
+    local attr = DBCfg.getBuildingByID(id)
+    local size = bio2Int(attr.Size)
+    local posOffset = HWScene.offset4Building
+
+    if (size % 2 == 0) then
+        building.transform.position = grid:GetCellPosition(index) + posOffset
+    else
+        building.transform.position = grid:GetCellCenter(index) + posOffset
     end
 end
 

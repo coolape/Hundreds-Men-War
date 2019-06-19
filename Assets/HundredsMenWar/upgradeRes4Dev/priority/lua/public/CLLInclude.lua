@@ -314,7 +314,10 @@ do
     MyCfg = CS.MyCfg
     ---@type MirrorReflection
     MirrorReflection = CS.MirrorReflection
+    ---@type CameraMgr
     CameraMgr = CS.CameraMgr
+    ---@type Coolape.CLAStarPathSearch
+    CLAStarPathSearch = CS.Coolape.CLAStarPathSearch
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")
