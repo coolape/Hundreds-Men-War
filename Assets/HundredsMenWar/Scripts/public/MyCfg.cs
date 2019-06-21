@@ -9,4 +9,5 @@ public class MyCfg : CLCfgBase
     public Transform lookAtTarget;
     public Camera mainCamera;
     public Camera uiCamera;
+    public Transform shadowRoot;
 }

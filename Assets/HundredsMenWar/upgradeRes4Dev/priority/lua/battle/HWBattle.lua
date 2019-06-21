@@ -30,6 +30,9 @@ function HWBattle.onFinishLoadScene()
     -- 加载建筑
     HWBattle.loadBuildings()
     CLAStarPathSearch.current:scan()
+    if HWBattle.callback then
+        HWBattle.callback()
+    end
 end
 
 function HWBattle.loadBuildings()
