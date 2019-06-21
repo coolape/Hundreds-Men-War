@@ -48,26 +48,28 @@ function HWBattle.onLoadBuilding(name, obj, param)
         obj.transform.localScale = Vector3.one
         HWScene.placeBuilding(obj, id, index)
 
+        local attr = DBCfg.getBuildingByID(id)
         SetActive(obj, true)
         ---@type Coolape.CLUnit
         local unit = obj:GetComponent("MyUnit")
         ---@type IDLBuilding
         local buildingLua = nil
         if unit.luaTable == nil then
-            buildingLua = IDUtl.newBuildingLua(attr)
+            buildingLua = GameUtl.newBuildingLua(attr)
             unit.luaTable = buildingLua
             unit:initGetLuaFunc()
         else
             buildingLua = unit.luaTable
         end
 
-        buildingLua:init(unit, id, 0, 1, true, {index = index, serverData = d})
+        buildingLua:init(unit, id, 0, 1, true, {index = index, serverData = {}})
 
-        local attr = DBCfg.getBuildingByID(bio2number(d.attrid))
-        IDMainCity.refreshGridState(index, bio2number(attr.Size), true, gridState4Building)
-        buildings[bio2number(d.idx)] = buildingLua
+        if isOffense then
+            HWBattle.offenseObjs[unit.instanceID] = buildingLua
+        else
+            HWBattle.defenseObjs[unit.instanceID] = buildingLua
+        end
     end
-
 end
 
 function HWBattle.clean()

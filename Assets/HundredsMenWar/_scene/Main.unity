@@ -170,7 +170,7 @@ MonoBehaviour:
   scanType: 1
   obstructMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   passableMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   eventsGoToColliders: 0
   eventReceiverMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 17680
   debug: 0
   useMouse: 1
   useTouch: 1

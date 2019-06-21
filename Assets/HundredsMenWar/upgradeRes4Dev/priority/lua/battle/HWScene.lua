@@ -10,6 +10,7 @@ local lookAtTarget = MyCfg.self.lookAtTarget
 local drag4World = CLUIDrag4World.self
 local progressCallback
 local gridState4Tile = {}
+local gridState4Building = {}
 local tiles = {}
 
 -- 重新加载海
@@ -190,6 +191,7 @@ function HWScene.placeBuilding(building, id, index)
     else
         building.transform.position = grid:GetCellCenter(index) + posOffset
     end
+    IDMainCity.refreshGridState(index, bio2number(attr.Size), true, gridState4Building)
 end
 
 function HWScene.clean()
@@ -202,6 +204,9 @@ function HWScene.clean()
     end
     tiles = {}
     IDLGridTileSide.clean()
+
+    gridState4Tile = {}
+    gridState4Building = {}
 end
 
 return HWScene
