@@ -191,7 +191,7 @@ function HWScene.placeBuilding(building, id, index)
     else
         building.transform.position = grid:GetCellCenter(index) + posOffset
     end
-    IDMainCity.refreshGridState(index, bio2number(attr.Size), true, gridState4Building)
+    HWScene.refreshGridState(index, bio2number(attr.Size), true, gridState4Building)
 end
 
 function HWScene.clean()

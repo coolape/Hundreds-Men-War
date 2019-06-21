@@ -1,4 +1,4 @@
-﻿require("city.IDLUnitBase")
+﻿require("battle.IDLUnitBase")
 ---@class IDLBuilding
 IDLBuilding = class("IDLBuilding", IDLUnitBase)
 

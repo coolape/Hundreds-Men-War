@@ -143,6 +143,34 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
     path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/public/_empty.png
+  - name: shadow_shadow2
+    x: 0
+    y: 0
+    width: 124
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/uiRes/shadow/shadow2.png
+  - name: shadow_shadow1
+    x: 0
+    y: 0
+    width: 122
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    path: HundredsMenWar/upgradeRes4Dev/other/uiAtlas/uiRes/shadow/shadow1.png
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
