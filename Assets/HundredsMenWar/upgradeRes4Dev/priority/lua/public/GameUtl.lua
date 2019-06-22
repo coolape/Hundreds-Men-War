@@ -14,4 +14,7 @@ function GameUtl.newBuildingLua(attr)
     end
 end
 
+function GameUtl.hidePopupMenus()
+end
+
 return GameUtl

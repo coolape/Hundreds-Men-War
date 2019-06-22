@@ -167,10 +167,154 @@ end
 function HWScene.getGrid()
     return grid
 end
+
+
+---@public grid中index位置在的size个格子是都是空闲的
+function HWScene.isSizeInFreeCell(index, size, canOnLand, canOnWater)
+    local list = HWScene.grid:getOwnGrids(index, size)
+    local count = list.Count
+    local cellIndex = 0
+    local haveland = false
+    local havewater = false
+    for i = 0, count - 1 do
+        cellIndex = NumEx.getIntPart(list[i])
+        if (not grid:IsInBounds(cellIndex)) then
+            return false
+        end
+        if (gridState4Building[cellIndex] == true) then
+            return false
+        end
+        if (not canOnLand) and gridState4Tile[cellIndex] == true then
+            return false
+        end
+        if (not canOnWater) and (gridState4Tile[cellIndex] ~= true) then
+            return false
+        end
+        if haveland or gridState4Tile[cellIndex] == true then
+            haveland = true
+        end
+        if havewater or (gridState4Tile[cellIndex] ~= true) then
+            havewater = true
+        end
+    end
+    if haveland and havewater then
+        return false
+    end
+    return true
+end
+
+---@public 扩建地块
+function HWScene.showExtendTile(data)
+    GameUtl.hidePopupMenus()
+    SFourWayArrow.hide()
+    if HWScene.selectedUnit == nil then
+        return
+    end
+    if HWScene.ExtendTile == nil then
+        CLUIOtherObjPool.borrowObjAsyn(
+            "ExtendTile",
+            function(name, go, orgs)
+                if orgs ~= HWScene.selectedUnit then
+                    CLUIOtherObjPool.returnObj(go)
+                    SetActive(go, false)
+                    return
+                end
+                HWScene.ExtendTile = go:GetComponent("CLCellLua")
+                HWScene.ExtendTile.transform.parent = transform
+                HWScene.ExtendTile.transform.localScale = Vector3.one
+                HWScene.ExtendTile.transform.localEulerAngles = Vector3.zero
+                HWScene.ExtendTile.transform.position = HWScene.selectedUnit.transform.position
+                --SetActive(go, true)
+                IDLGridTileSide.clean()
+                HWScene.ExtendTile:init(HWScene.selectedUnit, nil)
+            end,
+            HWScene.selectedUnit
+        )
+    else
+        --SetActive(IDMainCity.ExtendTile.gameObject, true)
+        IDLGridTileSide.clean()
+        HWScene.ExtendTile:init(HWScene.selectedUnit, nil)
+    end
+end
+
+---@public 能否放在一个地块
+---@param ...、 可以是index或x、y
+function HWScene.canPlaceTile(...)
+    local param = {...}
+    local index
+    if #param > 1 then
+        local x = param[1]
+        local y = param[2]
+        index = grid:GetCellIndex(x, y)
+    else
+        index = param[1]
+    end
+    return HWScene.isSizeInFreeCell(index, 2, false, true)
+end
+
+
 function HWScene.onClickTile(tile)
+    if (HWScene.selectedUnit == tile) then
+        return
+    end
+
+    if HWScene.ExtendTile then
+        SetActive(HWScene.ExtendTile.gameObject, false)
+    end
+    -- 处理之前的选中
+    if (HWScene.selectedUnit ~= nil) then
+        HWScene.setSelected(HWScene.selectedUnit, false)
+    end
+
+    -- 判断能否操作
+    if tile then
+        local cell = tile
+        local index = cell.gridIndex
+        local isOK = HWScene.isSizeInFreeCell(index, cell.size, true, false)
+        if not isOK then
+            CLAlert.add(LGet("CannotProcTile"), Color.yellow, 1)
+            local newPos = grid:GetCellPosition(index)
+            newPos = newPos + IDMainCity.offset4Tile
+            IDLBuildingSize.show(cell.size, Color.red, newPos)
+            IDLBuildingSize.setLayer("Top")
+            InvokeEx.invoke(IDLBuildingSize.hide, 0.15)
+            IDMainCity.selectedUnit = nil
+            IDMainCity.showhhideBuildingProc(nil)
+            return
+        else
+            cell.jump()
+        end
+    end
+
+    -- 设置为当前选中
+    HWScene.selectedUnit = tile
+    if (HWScene.selectedUnit ~= nil) then
+        HWScene.setSelected(tile, true)
+    end
+
+    HWScene.showhhideBuildingProc(tile)
 end
 
 function HWScene.onClickOcean()
+    if HWScene.ExtendTile then
+        SetActive(HWScene.ExtendTile.gameObject, false)
+    end
+
+    if (HWScene.selectedUnit ~= nil) then
+        HWScene.setSelected(HWScene.selectedUnit, false)
+
+        if (HWScene.newBuildUnit == HWScene.selectedUnit) then
+            -- 说明是新建
+            CLThingsPool.returnObj(HWScene.selectedUnit.csSelf.gameObject)
+            HWScene.selectedUnit:clean()
+            SetActive(HWScene.selectedUnit.csSelf.gameObject, false)
+            HWScene.newBuildUnit = nil
+        end
+        GameUtl.hidePopupMenus()
+        HWScene.selectedUnit = nil
+    end
+
+    IDLGridTileSide.show()
 end
 
 function HWScene.setOtherUnitsColiderState(target, activeCollider)

@@ -75,6 +75,14 @@ function HWBattle.onLoadBuilding(name, obj, param)
     end
 end
 
+function HWBattle.onClickSomeObj(unit, pos)
+    if unit.isTile then
+        HWScene.onClickTile(unit)
+    else
+
+    end
+end
+
 function HWBattle.clean()
     HWScene.clean()
 end
