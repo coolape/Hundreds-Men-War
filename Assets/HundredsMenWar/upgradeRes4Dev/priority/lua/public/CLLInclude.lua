@@ -318,6 +318,8 @@ do
     CameraMgr = CS.CameraMgr
     ---@type Coolape.CLAStarPathSearch
     CLAStarPathSearch = CS.Coolape.CLAStarPathSearch
+    ---@type SFourWayArrow
+    SFourWayArrow = CS.SFourWayArrow
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")

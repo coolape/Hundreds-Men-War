@@ -1,5 +1,6 @@
 HWScene = {}
 local IDLGridTileSide = require("battle.IDLGridTileSide")
+require("battle.IDLBuildingSize")
 HWScene.gridTileSidePorc = IDLGridTileSide
 HWScene.offset4Tile = Vector3.up * 0.3
 HWScene.offset4Building = Vector3.up * 0.3
@@ -67,7 +68,8 @@ function HWScene._init()
 
     local uvWave = HWScene.gameObject:AddComponent(typeof(CS.Wave))
     IDLGridTileSide.init(grid, uvWave)
-
+    
+    IDLBuildingSize.init()
     -- 加载水
     CLThingsPool.borrowObjAsyn("OceanLow", HWScene.onLoadOcena)
 end
@@ -168,7 +170,6 @@ function HWScene.getGrid()
     return grid
 end
 
-
 ---@public grid中index位置在的size个格子是都是空闲的
 function HWScene.isSizeInFreeCell(index, size, canOnLand, canOnWater)
     local list = HWScene.grid:getOwnGrids(index, size)
@@ -201,6 +202,85 @@ function HWScene.isSizeInFreeCell(index, size, canOnLand, canOnWater)
         return false
     end
     return true
+end
+
+---@public 选中状态
+function HWScene.setSelected(unit, selected)
+    if unit == nil then
+        return
+    end
+
+    local cell = unit
+    local isTile = cell.isTile
+    if (selected) then
+        SFourWayArrow.show(unit.csSelf, cell.size) --设置箭头
+        SFourWayArrow.setMatToon()
+        if isTile then
+            HWScene.refreshGridState(cell.gridIndex, cell.size, false, gridState4Tile)
+        else
+            HWScene.refreshGridState(cell.gridIndex, cell.size, false, gridState4Building)
+        end
+    else
+        -- //TODO:释放技能范围的圈
+        HWScene.setOtherUnitsColiderState(nil, true)
+        SFourWayArrow.hide()
+        IDLBuildingSize.hide()
+
+        local grid = HWScene.getGrid()
+        local index = grid:GetCellIndex(unit.transform.position)
+        local placeGround, placeSea
+        if isTile then
+            placeGround = false
+            placeSea = true
+        else
+            placeGround = cell.attr.PlaceGround
+            placeSea = cell.attr.PlaceSea
+        end
+
+        if (HWScene.isSizeInFreeCell(index, cell.size, placeGround, placeSea)) then
+            cell.gridIndex = index
+
+            if isTile then
+                HWScene.refreshGridState(cell.gridIndex, cell.size, true, gridState4Tile)
+            else
+                HWScene.refreshGridState(cell.gridIndex, cell.size, true, gridState4Building)
+            end
+        else
+            local pos = Vector3.zero
+            if (cell.size % 2 == 0) then
+                pos = grid:GetCellPosition(cell.gridIndex)
+            else
+                pos = grid:GetCellCenter(cell.gridIndex)
+            end
+            if unit.isTile then
+                pos = pos + HWScene.offset4Tile
+            else
+                local posOffset
+                posOffset = HWScene.offset4Building
+                pos = pos + posOffset
+            end
+            unit.transform.position = pos
+            if unit.shadow then
+                unit.shadow.position = pos + Vector3.up * 0.01
+            end
+
+            if unit ~= HWScene.newBuildUnit then
+                if isTile then
+                    HWScene.refreshGridState(cell.gridIndex, cell.size, true, gridState4Tile)
+                else
+                    HWScene.refreshGridState(cell.gridIndex, cell.size, true, gridState4Building)
+                end
+            end
+        end
+
+        IDLCameraMgr.setPostProcessingProfile("normal")
+        if isTile then
+            NGUITools.SetLayer(unit.gameObject, LayerMask.NameToLayer("Tile"))
+        else
+            NGUITools.SetLayer(unit.body.gameObject, LayerMask.NameToLayer("Building"))
+        end
+        IDLBuildingSize.setLayer("Default")
+    end
 end
 
 ---@public 扩建地块
@@ -251,7 +331,6 @@ function HWScene.canPlaceTile(...)
     end
     return HWScene.isSizeInFreeCell(index, 2, false, true)
 end
-
 
 function HWScene.onClickTile(tile)
     if (HWScene.selectedUnit == tile) then
