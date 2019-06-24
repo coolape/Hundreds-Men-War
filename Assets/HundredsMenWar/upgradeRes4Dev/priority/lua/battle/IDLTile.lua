@@ -39,7 +39,7 @@ function cell.OnClick()
 
     if (MyCfg.mode == GameMode.battle) then
         -- 通知战场，玩家点击了我
-        CLLBattle.onClickSomeObj(cell, cell.transform.position)
+        HWBattle.onClickSomeObj(cell, cell.transform.position)
     else
         --SoundEx.playSound(self.attr.SelectSound, 1, 1)
         HWScene.onClickTile(cell)

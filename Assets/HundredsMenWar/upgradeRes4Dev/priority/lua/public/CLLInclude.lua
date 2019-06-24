@@ -320,6 +320,8 @@ do
     CLAStarPathSearch = CS.Coolape.CLAStarPathSearch
     ---@type SFourWayArrow
     SFourWayArrow = CS.SFourWayArrow
+    ---@type UnityEngine.LayerMask
+    LayerMask = CS.UnityEngine.LayerMask
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")

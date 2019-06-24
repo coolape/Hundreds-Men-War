@@ -68,7 +68,14 @@ function HWScene._init()
 
     local uvWave = HWScene.gameObject:AddComponent(typeof(CS.Wave))
     IDLGridTileSide.init(grid, uvWave)
-    
+
+    CLThingsPool.borrowObjAsyn(
+        "FourWayArrow",
+        function(name, obj, orgs)
+            obj.transform.parent = transform
+        end
+    )
+
     IDLBuildingSize.init()
     -- 加载水
     CLThingsPool.borrowObjAsyn("OceanLow", HWScene.onLoadOcena)
@@ -357,8 +364,8 @@ function HWScene.onClickTile(tile)
             IDLBuildingSize.show(cell.size, Color.red, newPos)
             IDLBuildingSize.setLayer("Top")
             InvokeEx.invoke(IDLBuildingSize.hide, 0.15)
-            IDMainCity.selectedUnit = nil
-            IDMainCity.showhhideBuildingProc(nil)
+            HWScene.selectedUnit = nil
+            HWScene.showhhideBuildingProc(nil)
             return
         else
             cell.jump()
@@ -394,6 +401,10 @@ function HWScene.onClickOcean()
     end
 
     IDLGridTileSide.show()
+end
+
+function HWScene.showhhideBuildingProc(unit)
+--//TODO:
 end
 
 function HWScene.setOtherUnitsColiderState(target, activeCollider)
