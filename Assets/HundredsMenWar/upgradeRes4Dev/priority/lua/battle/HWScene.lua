@@ -48,8 +48,8 @@ function HWScene._init()
     HWScene.grid = go:AddComponent(typeof(CLGrid))
     HWScene.grid.gridLineHight = HWScene.offset4Tile.y
     grid = HWScene.grid.grid
-    local rows = 20
-    local cols = 40
+    local rows = 15
+    local cols = 50
     HWScene.grid.numRows = rows
     HWScene.grid.numCols = cols
     HWScene.grid.numGroundRows = rows

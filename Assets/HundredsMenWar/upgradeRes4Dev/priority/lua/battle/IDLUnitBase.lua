@@ -123,9 +123,9 @@ end
 
 -- 可以放下
 function IDLUnitBase:isCanPlace(...)
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
     local index = grid:GetCellIndex(self.transform.position)
-    if (IDMainCity.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)) then
+    if (HWScene.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)) then
         return true
     end
     return false
@@ -146,7 +146,7 @@ function IDLUnitBase:_OnClick(...)
     else
         SoundEx.playSound(self.attr.SelectSound, 1, 1)
         self:jump()
-        IDMainCity.onClickBuilding(self)
+        HWScene.onClickBuilding(self)
     end
 end
 
@@ -158,7 +158,7 @@ function IDLUnitBase:_OnPress(go, isPress)
     if (not self.canClick) then
         return
     end
-    if (IDMainCity.selectedUnit ~= self) then
+    if (HWScene.selectedUnit ~= self) then
         return
     end
     if (MyCfg.mode == GameMode.battle) then
@@ -166,28 +166,28 @@ function IDLUnitBase:_OnPress(go, isPress)
         CLLBattle.onPressRole(isPress, self.csSelf, self.transform.position)
     else
         if (isPress) then
-            IDMainCity.setOtherUnitsColiderState(self, false)
+            HWScene.setOtherUnitsColiderState(self, false)
             CLUIDrag4World.self.enabled = false --不可托动屏幕
         else
             self.isDraged = false
 
             self:jump()
-            local grid = IDMainCity.getGrid()
-            IDMainCity.grid:hide() -- 网格不显示
+            local grid = HWScene.getGrid()
+            HWScene.grid:hide() -- 网格不显示
             local moved = false
             local index = grid:GetCellIndex(self.transform.position)
-            if (IDMainCity.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)) then
+            if (HWScene.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)) then
                 IDLBuildingSize.hide()
                 moved = (self.gridIndex ~= index)
                 self.gridIndex = index
-                IDMainCity.setOtherUnitsColiderState(nil, true)
+                HWScene.setOtherUnitsColiderState(nil, true)
 
                 IDLCameraMgr.setPostProcessingProfile("normal")
                 NGUITools.SetLayer(self.body.gameObject, LayerMask.NameToLayer("Building"))
                 IDLBuildingSize.setLayer("Default")
             end
             -- 通知主城有释放建筑
-            IDMainCity.onReleaseBuilding(self, moved)
+            HWScene.onReleaseBuilding(self, moved)
             self.csSelf:invoke4Lua("setScreenCanDrag", 0.2)
         end
     end
@@ -199,7 +199,7 @@ end
 
 function IDLUnitBase:onShowingGrid(...)
     if (not self.isDraged) then
-        IDMainCity.hideGrid() --显示网格
+        HWScene.hideGrid() --显示网格
     end
 end
 
@@ -210,19 +210,19 @@ end
 
 -- 拖动
 function IDLUnitBase:_OnDrag(delta)
-    if (IDMainCity.selectedUnit ~= self) then
+    if (HWScene.selectedUnit ~= self) then
         return
     end
     if not self.isDraged then
-        IDMainCity.grid:reShow(self.onShowingGrid) --显示网格
+        HWScene.grid:reShow(self.onShowingGrid) --显示网格
         IDLCameraMgr.setPostProcessingProfile("gray")
         NGUITools.SetLayer(self.body.gameObject, LayerMask.NameToLayer("Top"))
 
-        IDMainCity.gridTileSidePorc.hide()
+        HWScene.gridTileSidePorc.hide()
     end
     self.isDraged = true
 
-    local grid = IDMainCity.getGrid()
+    local grid = HWScene.getGrid()
 
     local inpos = MyMainCamera.lastTouchPosition
     inpos = Vector3(inpos.x, inpos.y, 0)
@@ -237,8 +237,8 @@ function IDLUnitBase:_OnDrag(delta)
     local index = grid:GetCellIndex(currBuildingPos)
 
     local posOffset
-    if IDMainCity.isOnTheLand(index, self.size) then
-        posOffset = IDMainCity.offset4Building
+    if HWScene.isOnTheLand(index, self.size) then
+        posOffset = HWScene.offset4Building
     else
         posOffset = IDWorldMap.offset4Ocean
     end
@@ -256,8 +256,8 @@ function IDLUnitBase:_OnDrag(delta)
             self.shadow.position = trf.position + Vector3.up * 0.02
         end
 
-        local isOK = IDMainCity.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)
-        newPos = newPos + IDMainCity.offset4Tile
+        local isOK = HWScene.isSizeInFreeCell(index, self.size, self.attr.PlaceGround, self.attr.PlaceSea)
+        newPos = newPos + HWScene.offset4Tile
         IDLBuildingSize.show(self.size, isOK and Color.green or Color.red, newPos)
         IDLBuildingSize.setLayer("Top")
         if (isOK) then
