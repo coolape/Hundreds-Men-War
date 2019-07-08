@@ -339,7 +339,9 @@ function HWScene.canPlaceTile(...)
     return HWScene.isSizeInFreeCell(index, 2, false, true)
 end
 
+---@param tile IDLTile
 function HWScene.onClickTile(tile)
+    printe(tile.gridIndex)
     if (HWScene.selectedUnit == tile) then
         return
     end
