@@ -28,24 +28,41 @@ end
 
 function HWBattle.onFinishLoadScene()
     -- 加载建筑
-    HWBattle.loadBuildings()
-    CLAStarPathSearch.current:scan()
-    if HWBattle.callback then
-        HWBattle.callback()
-    end
+    local buildings = {
+        {id = 1, isOffense = true, pos = 406},
+        {id = 2, isOffense = true, pos = 414},
+        {id = 1, isOffense = false, pos = 444},
+        {id = 1, isOffense = false, pos = 444},
+        {id = 2, isOffense = false, pos = 436}
+    }
+    HWBattle.loadBuildings(
+        {
+            list = buildings,
+            i = 1,
+            callback = function()
+                CLAStarPathSearch.current:scan()
+                if HWBattle.callback then
+                    HWBattle.callback()
+                end
+            end
+        }
+    )
 end
 
-function HWBattle.loadBuildings()
-    CLThingsPool.borrowObjAsyn("Buildings.1", HWBattle.onLoadBuilding, {id = 1, isOffense = true, pos = 240})
-    CLThingsPool.borrowObjAsyn("Buildings.2", HWBattle.onLoadBuilding, {id = 2, isOffense = true, pos = 240})
-    CLThingsPool.borrowObjAsyn("Buildings.1", HWBattle.onLoadBuilding, {id = 1, isOffense = false, pos = 120})
-    CLThingsPool.borrowObjAsyn("Buildings.2", HWBattle.onLoadBuilding, {id = 2, isOffense = false, pos = 240})
+function HWBattle.loadBuildings(data)
+    local list = data.list
+    local i = data.i
+    local id = list[i].id
+    CLThingsPool.borrowObjAsyn("Buildings." .. id, HWBattle.onLoadBuilding, data)
 end
 
 function HWBattle.onLoadBuilding(name, obj, param)
-    local isOffense = param.isOffense
-    local index = param.pos
-    local id = param.id
+    local list = param.list
+    local i = param.i
+    local data = list[i]
+    local isOffense = data.isOffense
+    local index = data.pos
+    local id = data.id
     if obj then
         obj.transform.parent = transform
         obj.transform.localScale = Vector3.one
@@ -72,6 +89,15 @@ function HWBattle.onLoadBuilding(name, obj, param)
         else
             HWBattle.defenseObjs[unit.instanceID] = buildingLua
         end
+        if i >= #list then
+            -- finish
+            if (param.callback) then
+                param.callback()
+            end
+        else
+            param.i = param.i + 1
+            HWBattle.loadBuildings(param)
+        end
     end
 end
 
@@ -79,7 +105,6 @@ function HWBattle.onClickSomeObj(unit, pos)
     if unit.isTile then
         HWScene.onClickTile(unit)
     else
-
     end
 end
 

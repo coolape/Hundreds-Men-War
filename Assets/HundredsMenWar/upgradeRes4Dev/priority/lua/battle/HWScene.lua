@@ -341,7 +341,7 @@ end
 
 ---@param tile IDLTile
 function HWScene.onClickTile(tile)
-    printe(tile.gridIndex)
+    printe("HWScene.onClickTile==" .. tile.gridIndex)
     if (HWScene.selectedUnit == tile) then
         return
     end
