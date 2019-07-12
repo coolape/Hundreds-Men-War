@@ -1127,7 +1127,7 @@ function IDLGridTileSide.onLoadSide(name, obj, orgs)
     if name == SidesName.TileSideFour then
         pos = pos + HWScene.offset4Tile
     else
-        pos = pos + Vector3.up*0.1
+        pos = pos + Vector3.up * 0.1
     end
     obj.transform.position = pos
     SetActive(obj, true)

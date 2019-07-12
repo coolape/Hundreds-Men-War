@@ -2,8 +2,8 @@ HWScene = {}
 local IDLGridTileSide = require("battle.IDLGridTileSide")
 require("battle.IDLBuildingSize")
 HWScene.gridTileSidePorc = IDLGridTileSide
-HWScene.offset4Tile = Vector3.up * 0.3
-HWScene.offset4Building = Vector3.up * 0.3
+HWScene.offset4Tile = Vector3.up * 0.35
+HWScene.offset4Building = Vector3.up * 0.4
 HWScene.selectedUnit = nil
 local transform
 local grid

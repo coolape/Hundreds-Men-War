@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114476327601868608}
   - component: {fileID: 114940971292296860}
   - component: {fileID: 114118708483529294}
+  - component: {fileID: 7354601158157783857}
   m_Layer: 9
   m_Name: role1
   m_TagString: Untagged
@@ -314,6 +315,33 @@ MonoBehaviour:
     partObjs: []
     needSwitchController: 0
     animatorControllers: []
+--- !u!114 &7354601158157783857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062924336826448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e01a5dc8c554427b335736a19173a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAStarPathSearch: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  speed: 1
+  turningSpeed: 5
+  endReachedDistance: 0.2
+  canSearchPath: 1
+  canMove: 0
+  autoMoveOnFinishSeek: 1
+  movingBy: 1
+  unscaledTime: 0
+  showPath: 0
+  isSeekTargetLoop: 0
+  seekTargetLoopIntvalSec: 1
+  nextSeekTargetTime: 0
 --- !u!1 &1068159715461008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1203,7 @@ Animator:
   m_GameObject: {fileID: 1922337858460802}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e341025b62bd644ff8603962268578f5, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95a0b72451e1f4538a0775e513a01d24, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
