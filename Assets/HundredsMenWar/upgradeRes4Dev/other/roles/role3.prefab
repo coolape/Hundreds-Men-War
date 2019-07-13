@@ -353,6 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482814}
+  - component: {fileID: 2159425766630567314}
   m_Layer: 9
   m_Name: ejector
   m_TagString: Untagged
@@ -374,6 +375,21 @@ Transform:
   m_Father: {fileID: 423470}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2159425766630567314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc042f60e577e45ec88fca7d18772284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 11462874}
+  firePoints:
+  - {fileID: 482814}
 --- !u!1 &1000975433160930
 GameObject:
   m_ObjectHideFlags: 0
