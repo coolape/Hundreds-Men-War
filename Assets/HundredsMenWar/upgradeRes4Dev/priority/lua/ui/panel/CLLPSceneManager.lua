@@ -91,6 +91,7 @@ function CLLPSceneManager.gotoBattle()
 
     smoothFollow.distance = 5
     smoothFollow.height = 10
+    lookAtTarget.transform.localPosition = Vector3(15, 0, -15)
     HWBattle.init(mData, CLLPSceneManager.onLoadBattle, CLLPSceneManager.onProgress)
 end
 

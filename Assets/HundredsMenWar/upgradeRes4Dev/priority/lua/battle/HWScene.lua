@@ -406,7 +406,7 @@ function HWScene.onClickOcean()
 end
 
 function HWScene.showhhideBuildingProc(unit)
---//TODO:
+    --//TODO:
 end
 
 function HWScene.setOtherUnitsColiderState(target, activeCollider)
@@ -428,6 +428,28 @@ function HWScene.placeBuilding(building, id, index)
         building.transform.position = grid:GetCellCenter(index) + posOffset
     end
     HWScene.refreshGridState(index, bio2number(attr.Size), true, gridState4Building)
+end
+
+function HWScene.onReleaseTile(tile, hadMoved)
+    if HWScene.newBuildUnit == tile then
+    elseif HWScene.selectedUnit == tile then
+        -- IDLGridTileSide.refreshAndShow(nil, nil, true)
+        if hadMoved then
+            -- 通知服务器
+            local blua = tile
+            ---@type IDDBTile
+            local d = blua.mData
+            local gidx = blua.gridIndex
+
+            -- 刷新a星网格
+            local oldIndex = bio2number(d.pos)
+            CLAStarPathSearch.current:scanRange(oldIndex, 2)
+            -- 新位置
+            CLAStarPathSearch.current:scanRange(tile.transform.position, 2)
+
+            -- net:send(NetProtoIsland.send.moveTile(bio2number(d.idx), gidx))
+        end
+    end
 end
 
 function HWScene.clean()
