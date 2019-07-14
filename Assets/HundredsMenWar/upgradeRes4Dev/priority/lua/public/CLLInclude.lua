@@ -5,7 +5,7 @@ do
     local localReq = require
     function require(path)
         local ret, result = pcall(localReq, path)
-         --("toolkit.KKWhiteList")
+        --("toolkit.KKWhiteList")
         if not ret then
             print("err:" .. result)
             return nil
@@ -318,10 +318,18 @@ do
     CameraMgr = CS.CameraMgr
     ---@type Coolape.CLAStarPathSearch
     CLAStarPathSearch = CS.Coolape.CLAStarPathSearch
+    ---@type Coolape.CLSeeker
+    CLSeeker = CS.Coolape.CLSeeker
     ---@type SFourWayArrow
     SFourWayArrow = CS.SFourWayArrow
     ---@type UnityEngine.LayerMask
     LayerMask = CS.UnityEngine.LayerMask
+    ---@type AnimationInstancing.AnimationManager
+    AnimationManager = CS.AnimationInstancing.AnimationManager
+    ---@type AnimationInstancing.AnimationInstancing
+    AnimationInstancing = CS.AnimationInstancing.AnimationInstancing
+    ---@type CLEjector
+    CLEjector=CS.CLEjector
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")
