@@ -18,6 +18,7 @@ function HWBattle._init()
     transform.parent = MyMain.self.transform
     transform.localScale = Vector3.one
     transform.localPosition = Vector3.zero
+    HWBattle.useInstancing = AnimationInstancingMgr.Instance.UseInstancing
 end
 
 function HWBattle.init(data, callback, progressCB)
@@ -101,6 +102,31 @@ function HWBattle.onLoadBuilding(name, obj, param)
     end
 end
 
+function HWBattle.newRole(id, isOffense)
+    local roleName = ""
+    if HWBattle.useInstancing then
+        if isOffense then
+            roleName = joinStr("role" .. id .. "_1_ins")
+        else
+            roleName = joinStr("role" .. id .. "_2_ins")
+        end
+    else
+        roleName = joinStr("role" .. id)
+    end
+    CLRolePool.borrowObjAsyn(
+        roleName,
+        function(name, go, orgs)
+            if isOffense then
+            else
+            end
+            ---@type MyUnit
+            local role = go
+            role:init(id, 1, 0, isOffense, nil)
+            HWBattle.offenseObjs[role.instanceID] = role
+        end
+    )
+end
+
 function HWBattle.onClickSomeObj(unit, pos)
     if unit.isTile then
         HWScene.onClickTile(unit)
@@ -109,6 +135,8 @@ function HWBattle.onClickSomeObj(unit, pos)
 end
 
 function HWBattle.clean()
+    --//TODO:
+    
     HWScene.clean()
 end
 

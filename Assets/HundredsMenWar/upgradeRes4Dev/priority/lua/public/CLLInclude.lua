@@ -326,10 +326,15 @@ do
     LayerMask = CS.UnityEngine.LayerMask
     ---@type AnimationInstancing.AnimationManager
     AnimationManager = CS.AnimationInstancing.AnimationManager
+
+    ---@type AnimationInstancing.AnimationInstancingMgr
+    AnimationInstancingMgr = CS.AnimationInstancing.AnimationInstancingMgr
     ---@type AnimationInstancing.AnimationInstancing
     AnimationInstancing = CS.AnimationInstancing.AnimationInstancing
     ---@type CLEjector
-    CLEjector=CS.CLEjector
+    CLEjector = CS.CLEjector
+    ---@type MyUnit
+    MyUnit = CS.MyUnit
     -------------------------------------------------------
     -- require
     require("bio.BioUtl")

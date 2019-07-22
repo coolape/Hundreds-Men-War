@@ -50,6 +50,7 @@ function MSPBattle.uiEventDelegate(go)
     local goName = go.name
     if goName == "ButtonNew" then
       --//TODO:
+      HWBattle.newRole(1, true)
     end
 end
 

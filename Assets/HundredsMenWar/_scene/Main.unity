@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &292591400
 Transform:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3001
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -1483,6 +1483,7 @@ GameObject:
   - component: {fileID: 1417759626}
   - component: {fileID: 1417759625}
   - component: {fileID: 1417759633}
+  - component: {fileID: 1417759634}
   m_Layer: 0
   m_Name: cfg
   m_TagString: Untagged
@@ -1642,6 +1643,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aniInstancingList: []
   useInstancing: 1
+--- !u!114 &1417759634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417759624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f699a817ba7a394eba7fd504cc00855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1466880973
 GameObject:
   m_ObjectHideFlags: 0

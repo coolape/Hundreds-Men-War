@@ -1,7 +1,7 @@
 ﻿---@class HWRoleBase
 HWRoleBase = class("HWRoleBase")
 
----@type Coolape.CLUnit
+---@type MyUnit
 local csSelf = nil
 local transform = nil
 
