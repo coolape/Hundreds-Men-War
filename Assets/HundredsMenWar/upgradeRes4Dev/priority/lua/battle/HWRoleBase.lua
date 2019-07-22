@@ -14,15 +14,20 @@ function HWRoleBase:_init(csObj)
     transform = csObj.transform
     self.csSelf = csSelf
     self.transform = transform
+    ---@type Coolape.MyTween
     self.tween = csSelf:GetComponent("MyTween")
+    ---@type Coolape.CLSeeker
     self.seeker = csSelf:GetComponent("CLSeeker")
     self.seeker:init(
         self:wrapFunction4CS(self.onFinishSeekCallback),
         self:wrapFunction4CS(self.onMovingCallback),
         self:wrapFunction4CS(self.onArrivedCallback)
     )
+    ---@type Coolape.CLRoleAvata
     self.avata = csSelf:GetComponent("CLRoleAvata")
+    ---@type AnimationInstancing.AnimationInstancing
     self.aniInstancing = csSelf:GetComponent("AnimationInstancing")
+    ---@type CLEjector
     self.ejector = getCC(transform, "node/ejector", "CLEjector")
 end
 
@@ -33,7 +38,6 @@ function HWRoleBase:init(csObj, id, lev, isOffense, other)
     self.isOffense = isOffense
     self.id = id
     self.lev = lev
-
     csSelf:initRandomFactor()
 end
 
@@ -88,6 +92,10 @@ function HWRoleBase:setAction(...)
     end
 end
 
+function HWRoleBase:playIdel()
+    self:setAction("idel")
+end
+
 -- 完成一组动作的回调
 function HWRoleBase:onCompleteAction(act)
     if csSelf.isAnimationInstanceing then
@@ -110,7 +118,8 @@ function HWRoleBase:onCompleteAction(act)
         elseif ("down" == act.currAction) then
             self:setAction("up")
         elseif ("up" == act.currAction) then
-            self:formation()
+            -- self:formation()
+            self:playIdel()
         elseif ("dead" == act.currAction) then
             --             _cell.IamDead();
             if csSelf.isAnimationInstanceing then
@@ -128,21 +137,21 @@ function HWRoleBase:onCompleteAction(act)
 
         if (getAction("dead") ~= curActVal and getAction("down") ~= curActVal) then
             --_cell.setAction("idel");
-            _cell.playIdel()
+            self:playIdel()
         end
         if (getAction("attack") == curActVal) then
             -- if(csSelf.state == RoleState.attack) then
             --   csSelf:cancelFixedInvoke4Lua(_cell._doAttack);
             --   _cell.doAttack();
             -- end
-            _cell.setAction("idel")
+            self:setAction("idel")
         elseif (getAction("happy") == curActVal) then
             --_cell.setAction("idel");
-            _cell.playIdel()
+            self:playIdel()
         elseif (getAction("down") == curActVal) then
-            _cell.setAction("up")
+            self:setAction("up")
         elseif (getAction("up") == curActVal) then
-            _cell.formation()
+            self:formation()
         elseif (getAction("dead") == curActVal) then
         --             _cell.IamDead();
         end

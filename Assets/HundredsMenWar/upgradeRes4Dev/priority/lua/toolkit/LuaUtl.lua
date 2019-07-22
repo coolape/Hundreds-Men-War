@@ -148,6 +148,7 @@ function startswith(str, substr)
 end
 
 function getAction(act)
+    local actionValue = 0
     if (act == "idel") then
         --,       //0 空闲
         return 0
@@ -228,7 +229,7 @@ function strSplit(inputstr, sep)
         sep = "%s"
     end
     local t = {}
-    i = 1
+    local i = 1
     for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
         t[i] = str
         i = i + 1

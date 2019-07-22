@@ -304,13 +304,11 @@ MonoBehaviour:
     cellNames:
     - 1
     - 2
-    - 0
     - 3
     render: {fileID: 137367711829924666}
     materialNames:
     - roles.qb_01.Materials.qb_01
     - roles.qb_01.Materials.qb_02
-    - roles.qb_01.Materials.qb_00
     - roles.qb_01.Materials.qb_03
     partObjs: []
     needSwitchController: 0

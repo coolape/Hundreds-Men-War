@@ -23,7 +23,7 @@ end
 
 -- 显示，在c#中。show为调用refresh，show和refresh的区别在于，当页面已经显示了的情况，当页面再次出现在最上层时，只会调用refresh
 function MSPBattle.show()
-  CLUIDrag4World.setCanClickPanel(csSelf.name)
+    CLUIDrag4World.setCanClickPanel(csSelf.name)
 end
 
 -- 刷新
@@ -48,11 +48,9 @@ end
 -- 处理ui上的事件，例如点击等
 function MSPBattle.uiEventDelegate(go)
     local goName = go.name
-    --[[
-    if(goName == "xxx") then
-      --TODO:
+    if goName == "ButtonNew" then
+      --//TODO:
     end
-    --]]
 end
 
 -- 当顶层页面发生变化时回调
