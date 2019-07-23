@@ -2,8 +2,10 @@ HWScene = {}
 local IDLGridTileSide = require("battle.IDLGridTileSide")
 require("battle.IDLBuildingSize")
 HWScene.gridTileSidePorc = IDLGridTileSide
-HWScene.offset4Tile = Vector3.up * 0.35
-HWScene.offset4Building = Vector3.up * 0.4
+HWScene.offset4Ocean = Vector3.up * -0.5
+HWScene.offset4Tile = Vector3.up * -0.05
+HWScene.offset4TileSide = Vector3.up * -0.3
+HWScene.offset4Building = Vector3.zero
 HWScene.selectedUnit = nil
 local transform
 local grid
@@ -29,7 +31,7 @@ function HWScene.onLoadOcena(name, obj, orgs)
     end
     -- 先为false
     HWScene.ocean.enableMirrorReflection = false
-    HWScene.oceanTransform.position = lookAtTarget.position
+    HWScene.oceanTransform.position = lookAtTarget.position + HWScene.offset4Ocean
     SetActive(obj, true)
 end
 
@@ -447,9 +449,14 @@ function HWScene.onReleaseTile(tile, hadMoved)
             -- 新位置
             CLAStarPathSearch.current:scanRange(tile.transform.position, 2)
 
-            -- net:send(NetProtoIsland.send.moveTile(bio2number(d.idx), gidx))
+        -- net:send(NetProtoIsland.send.moveTile(bio2number(d.idx), gidx))
         end
     end
+end
+
+function HWScene.randomGridCellPos()
+    local index = NumEx.NextInt(0, grid.NumberOfCells - 1)
+    return grid:GetCellCenter(index)
 end
 
 function HWScene.clean()

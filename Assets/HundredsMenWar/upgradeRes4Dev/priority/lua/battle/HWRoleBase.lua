@@ -29,16 +29,22 @@ function HWRoleBase:_init(csObj)
     self.aniInstancing = csSelf:GetComponent("AnimationInstancing")
     ---@type CLEjector
     self.ejector = getCC(transform, "node/ejector", "CLEjector")
+    ---@type Coolape.CLRoleAction
+    self.action = csSelf.mbody:GetComponent("CLRoleAction")
 end
 
 -- 初始化，只会调用一次
 function HWRoleBase:init(csObj, id, lev, isOffense, other)
     self:_init(csObj)
+    self.seeker.mAStarPathSearch = CLAStarPathSearch.current
+
+    self.isRole = true
     self.transform = transform
     self.isOffense = isOffense
     self.id = id
     self.lev = lev
     csSelf:initRandomFactor()
+    self:goAround()
 end
 
 -- 换装
@@ -85,10 +91,10 @@ function HWRoleBase:setAction(...)
         callback = paras[2]
     end
 
-    if csSelf.isAnimationInstanceing then
+    if self.aniInstancing then
         self.aniInstancing:PlayAnimation(actionName, callback)
     else
-        csSelf.action:setAction(getAction(actionName), callback)
+        self.action:setAction(getAction(actionName), callback)
     end
 end
 
@@ -98,7 +104,7 @@ end
 
 -- 完成一组动作的回调
 function HWRoleBase:onCompleteAction(act)
-    if csSelf.isAnimationInstanceing then
+    if self.aniInstancing then
         if act.currAction == "idel" or act.currAction == "idel2" or act.currAction == "walk" or act.currAction == "run" then
             return
         end
@@ -122,7 +128,7 @@ function HWRoleBase:onCompleteAction(act)
             self:playIdel()
         elseif ("dead" == act.currAction) then
             --             _cell.IamDead();
-            if csSelf.isAnimationInstanceing then
+            if self.aniInstancing then
                 self.aniInstancing:Stop()
             end
         end
@@ -159,10 +165,17 @@ function HWRoleBase:onCompleteAction(act)
 end
 
 function HWRoleBase:onFinishSeekCallback(pathList, canReach)
+  self:setAction("run")
 end
 function HWRoleBase:onMovingCallback()
 end
 function HWRoleBase:onArrivedCallback()
+  self:goAround()
+end
+
+function HWRoleBase:goAround()
+    local toPos = HWScene.randomGridCellPos()
+    self.seeker:seek(toPos)
 end
 --------------------------------------------
 return HWRoleBase

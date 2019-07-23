@@ -5,6 +5,10 @@ local transform
 
 HWBattle.offenseObjs = {} -- 进攻方
 HWBattle.defenseObjs = {} -- 防守方
+---@type IDLBuilding
+HWBattle.offBase = nil --进攻方的主基地
+---@type IDLBuilding
+HWBattle.defBase = nil --敌方的主基地
 
 function HWBattle._init()
     if HWBattle.csSelf ~= nil then
@@ -87,8 +91,16 @@ function HWBattle.onLoadBuilding(name, obj, param)
 
         if isOffense then
             HWBattle.offenseObjs[unit.instanceID] = buildingLua
+            if id == 1 then
+                buildingLua.transform.localEulerAngles = Vector3(0, -90, 0)
+                HWBattle.offBase = buildingLua
+            end
         else
             HWBattle.defenseObjs[unit.instanceID] = buildingLua
+            if id == 1 then
+                buildingLua.transform.localEulerAngles = Vector3(0, 90, 0)
+                HWBattle.defBase = buildingLua
+            end
         end
         if i >= #list then
             -- finish
@@ -116,15 +128,27 @@ function HWBattle.newRole(id, isOffense)
     CLRolePool.borrowObjAsyn(
         roleName,
         function(name, go, orgs)
-            if isOffense then
-            else
-            end
             ---@type MyUnit
             local role = go
-            role:init(id, 1, 0, isOffense, nil)
-            HWBattle.offenseObjs[role.instanceID] = role
+            role.transform.parent = transform
+            role.transform.position = HWBattle.getRoleBornPos(isOffense)
+            SetActive(role.gameObject, true)
+            if role.luaTable == nil then
+                role.luaTable = GameUtl.newRoleLua(id)
+            end
+            role.luaTable:init(role, id, 1, isOffense, nil)
+            HWBattle.offenseObjs[role.instanceID] = role.luaTable
         end
     )
+end
+
+---@public 取得出生点
+function HWBattle.getRoleBornPos(isOffense)
+    if isOffense then
+        return HWBattle.offBase.door.position
+    else
+        return HWBattle.defBase.door.position
+    end
 end
 
 function HWBattle.onClickSomeObj(unit, pos)
@@ -135,8 +159,27 @@ function HWBattle.onClickSomeObj(unit, pos)
 end
 
 function HWBattle.clean()
-    --//TODO:
-    
+    for k, v in ipairs(HWBattle.offenseObjs) do
+        v:clean()
+        SetActive(v.gameObject, false)
+        if v.isRole then
+            CLRolePool.returnObj(v.csSelf)
+        elseif v.isBuilding then
+            CLThingsPool.returnObj(v.gameObject)
+        end
+    end
+    HWBattle.defenseObjs = {}
+    for k, v in ipairs(HWBattle.defenseObjs) do
+        v:clean()
+        SetActive(v.gameObject, false)
+        if v.isRole then
+            CLRolePool.returnObj(v.csSelf)
+        elseif v.isBuilding then
+            CLThingsPool.returnObj(v.gameObject)
+        end
+    end
+    HWBattle.defenseObjs = {}
+
     HWScene.clean()
 end
 
