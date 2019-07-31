@@ -27,6 +27,7 @@ function HWRoleBase:_init(csObj)
     self.avata = csSelf:GetComponent("CLRoleAvata")
     ---@type AnimationInstancing.AnimationInstancing
     self.aniInstancing = csSelf:GetComponent("AnimationInstancing")
+    self.aniInstancing.camera = CameraMgr.self.maincamera
     ---@type CLEjector
     self.ejector = getCC(transform, "node/ejector", "CLEjector")
     ---@type Coolape.CLRoleAction
@@ -44,6 +45,7 @@ function HWRoleBase:init(csObj, id, lev, isOffense, other)
     self.id = id
     self.lev = lev
     csSelf:initRandomFactor()
+    self:playIdel()
     self:goAround()
 end
 
@@ -170,7 +172,8 @@ end
 function HWRoleBase:onMovingCallback()
 end
 function HWRoleBase:onArrivedCallback()
-  self:goAround()
+    self:playIdel()
+    self.csSelf:invoke4Lua(self:wf(self:goAround), NumEx.NextInt(1, 5))
 end
 
 function HWRoleBase:goAround()

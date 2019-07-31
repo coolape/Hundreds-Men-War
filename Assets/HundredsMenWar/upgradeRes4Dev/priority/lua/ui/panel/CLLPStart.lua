@@ -50,6 +50,27 @@ do
         -- //TODO:other lua scripts
         require("public.IDLCameraMgr")
         IDLCameraMgr.init()
+        --------------------------------------------
+        --------------------------------------------
+        printw("SystemInfo.graphicsDeviceType========================")
+        printw(SystemInfo.graphicsDeviceType)
+        if not AnimationInstancingMgr.canUseInstancing then
+            if (SystemInfo.supportsInstancing
+                    and (SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.OpenGLES3
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.OpenGLCore
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.Direct3D11
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.Direct3D12
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.Metal
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.Vulkan
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.PlayStation4
+                    or SystemInfo.graphicsDeviceType == CS.UnityEngine.Rendering.GraphicsDeviceType.XboxOne)) then
+                AnimationInstancingMgr.Instance.UseInstancing = true
+            else
+                AnimationInstancingMgr.Instance.InstancingPackageSize = 1
+                AnimationInstancingMgr.Instance.UseInstancing = false
+            end
+            printw(AnimationInstancingMgr.Instance.UseInstancing)
+        end
     end
 
     function CLLPStart.setData(pars)

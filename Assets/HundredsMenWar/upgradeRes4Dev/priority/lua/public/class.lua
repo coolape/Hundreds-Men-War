@@ -118,6 +118,11 @@ function class(classname, super)
         end
 
         ---@public 包装函数给c#用
+        function cls:wf(func)
+            return self:wrapFunction4CS(func)
+        end
+
+        ---@public 包装函数给c#用
         function cls:wrapFunction4CS(func)
             return { instance = self, func = func }
         end
