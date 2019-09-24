@@ -19,15 +19,17 @@ function HWRoleBase:_init(csObj)
     ---@type Coolape.CLSeeker
     self.seeker = csSelf:GetComponent("CLSeeker")
     self.seeker:init(
-        self:wrapFunction4CS(self.onFinishSeekCallback),
-        self:wrapFunction4CS(self.onMovingCallback),
-        self:wrapFunction4CS(self.onArrivedCallback)
+        self:wf(self.onFinishSeekCallback),
+        self:wf(self.onMovingCallback),
+        self:wf(self.onArrivedCallback)
     )
     ---@type Coolape.CLRoleAvata
     self.avata = csSelf:GetComponent("CLRoleAvata")
     ---@type AnimationInstancing.AnimationInstancing
     self.aniInstancing = csSelf:GetComponent("AnimationInstancing")
-    self.aniInstancing.camera = CameraMgr.self.maincamera
+    if self.aniInstancing then
+        self.aniInstancing.camera = CameraMgr.self.maincamera
+    end
     ---@type CLEjector
     self.ejector = getCC(transform, "node/ejector", "CLEjector")
     ---@type Coolape.CLRoleAction
@@ -167,13 +169,13 @@ function HWRoleBase:onCompleteAction(act)
 end
 
 function HWRoleBase:onFinishSeekCallback(pathList, canReach)
-  self:setAction("run")
+    self:setAction("run")
 end
 function HWRoleBase:onMovingCallback()
 end
 function HWRoleBase:onArrivedCallback()
     self:playIdel()
-    self.csSelf:invoke4Lua(self:wf(self:goAround), NumEx.NextInt(1, 5))
+    self.csSelf:invoke4Lua(self:wf(HWRoleBase.goAround), NumEx.NextInt(1, 5))
 end
 
 function HWRoleBase:goAround()
