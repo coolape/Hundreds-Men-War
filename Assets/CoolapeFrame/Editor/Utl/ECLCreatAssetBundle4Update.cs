@@ -60,8 +60,9 @@ public class ECLCreatAssetBundle4Update
 			return;
 		}
 		cleanShardAssets (obj);
-		//==================================
-		file = file.Replace ("/upgradeRes4Dev", "/upgradeRes4Publish");
+        //==================================
+        file = file.Replace("\\", "/");
+        file = file.Replace ("/upgradeRes4Dev", "/upgradeRes4Publish");
 		
 		BuildAssetBundleOptions opt = BuildAssetBundleOptions.CollectDependencies;
 		if (isCompress) {
@@ -195,11 +196,12 @@ public class ECLCreatAssetBundle4Update
 			string[] fileEntries = Directory.GetFiles (path);//因为Application.dataPath得到的是型如 "工程名称/Assets"
 			string[] div_line = new string[] { "Assets/" };
 			foreach (string fileName in fileEntries) {
-				Debug.Log ("fileName=" + fileName);
+                Debug.Log ("fileName=" + fileName);
 				string[] sTemp = fileName.Split (div_line, StringSplitOptions.RemoveEmptyEntries);
 				string filePath = sTemp [1];
-				//Debug.Log(filePath);S
-				string localPath = "Assets/" + filePath;
+                filePath = filePath.Replace("\\", "/");
+                //Debug.Log(filePath);S
+                string localPath = "Assets/" + filePath;
 
 				UnityEngine.Object t = AssetDatabase.LoadMainAssetAtPath (localPath);
 				if (t != null) {
@@ -214,7 +216,7 @@ public class ECLCreatAssetBundle4Update
 			if (isTraversal) {
 				string[] dirEntries = Directory.GetDirectories (path);
 				foreach (string dir in dirEntries) {
-					createUnity3dFiles (dir, procDelegate, isTraversal);
+					createUnity3dFiles (dir.Replace("\\", "/"), procDelegate, isTraversal);
 				}
 			}
 		}
