@@ -165,6 +165,7 @@ public static class ECLEditorUtl
 //		Debug.Log ("objPath===" + objPath);
 		string objName = Path.GetFileNameWithoutExtension (objPath);
 		string basePath = Path.GetDirectoryName (objPath) + "/";
+        basePath = basePath.Replace("\\", "/");
 //		Debug.Log (objName);
 //		Debug.Log (basePath);
 		string replacePath = CLPathCfg.self.basePath + "/upgradeRes4Dev/other/";
@@ -193,7 +194,8 @@ public static class ECLEditorUtl
 		} else {
 			objName = Path.GetFileNameWithoutExtension (objPath);
 		}
-		objName = objName.Replace ("/", ".");
+        objName = objName.Replace("\\", "/");
+        objName = objName.Replace ("/", ".");
 //		Debug.Log ("objName===" + objName);
 		return objName;
 	}

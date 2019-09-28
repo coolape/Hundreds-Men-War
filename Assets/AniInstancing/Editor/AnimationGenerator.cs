@@ -110,7 +110,7 @@ namespace AnimationInstancing
                 workingInfo.animator.Update(workingInfo.length / workingInfo.info.totalFrame);
                 return;
             }
-            if (workingInfo != null && workingInfo.info.velocity.Length > workingInfo.workingFrame)
+            if (workingInfo != null)
             {
                 workingInfo.info.velocity[workingInfo.workingFrame] = workingInfo.animator.velocity;
                 workingInfo.info.angularVelocity[workingInfo.workingFrame] = workingInfo.animator.angularVelocity * Mathf.Rad2Deg;
@@ -314,7 +314,7 @@ namespace AnimationInstancing
         {
 #if UNITY_ANDROID || UNITY_IPHONE
         Debug.LogError("You can't bake animations on IOS or Android. Please switch to PC.");
-        //return;
+        return;
 #endif
             if (generatedPrefab != null)
             {
@@ -438,7 +438,7 @@ namespace AnimationInstancing
         {
 #if UNITY_ANDROID || UNITY_IPHONE
         Debug.LogError("You can't bake animations on IOS or Android. Please switch to PC.");
-        //return;
+        return;
 #endif
             if (generatedPrefab != null)
             {
@@ -607,7 +607,7 @@ namespace AnimationInstancing
             string folderName = "AnimationTexture";
 			string path = Application.dataPath + "/" +  CLPathCfg.self.basePath + "/upgradeRes4Dev/priority/" + folderName + "/";
             if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+                AssetDatabase.CreateFolder("Assets", folderName);
             FileStream file = File.Open(path + name + ".bytes", FileMode.Create);
             BinaryWriter writer = new BinaryWriter(file);
             writer.Write(aniInfo.Count);

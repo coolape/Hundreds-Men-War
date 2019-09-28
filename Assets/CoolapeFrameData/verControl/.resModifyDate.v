@@ -68,7 +68,7 @@
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials.meta,131396392820000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_01.mat,132073957930000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_01.mat.meta,131550378010000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_01_ins.mat,132090149190000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_01_ins.mat,132140390290000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_01_ins.mat.meta,131701622020000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_02.mat,132073957930000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/Materials/roles/qb_01/Materials/qb_02.mat.meta,131550377990000000
@@ -157,9 +157,9 @@
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/model/roles/gb/gb_01_skin.FBX.meta,131708547280000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/model/roles/qb_01/qb_01_skin.FBX,131534735950000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/model/roles/qb_01/qb_01_skin.FBX.meta,131702286340000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1.prefab,132090136910000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1.prefab,132140329650000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1.prefab.meta,132073957910000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1_1_ins.prefab,132090137040000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1_1_ins.prefab,132140329650000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1_1_ins.prefab.meta,132073957910000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1_2_ins.prefab,132084277210000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/other/roles/role1_2_ins.prefab.meta,132073957910000000
@@ -286,13 +286,13 @@
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua.meta,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/ui.meta,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/.DS_Store,132073953080000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role1.bytes,132090146890000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role1.bytes,131835261620000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role1.bytes.meta,131709214600000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role2.bytes,131709205500000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role2.bytes.meta,131709210600000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role3.bytes,131709205640000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/AnimationTexture/role3.bytes.meta,131709210600000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/atlas/atlasAllReal.prefab,132085239480000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/atlas/atlasAllReal.prefab,132140388850000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/atlas/atlasAllReal.prefab.meta,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/cfg/materialTexRef.cfg,132090148910000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/cfg/materialTexRef.cfg.meta,132048641130000000
@@ -312,7 +312,7 @@
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/ui.meta,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWBattle.lua,132084240800000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWBattle.lua.meta,132047775970000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWRoleBase.lua,132084346830000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWRoleBase.lua,132140329650000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWRoleBase.lua.meta,132076297860000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWScene.lua,132084240800000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/battle/HWScene.lua.meta,132047775970000000
@@ -372,7 +372,7 @@
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/GameUtl.lua.meta,132047775970000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/IDLCameraMgr.lua,132052964080000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/IDLCameraMgr.lua.meta,132052335860000000
-/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/class.lua,132084925500000000
+/Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/class.lua,132090383350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/public/class.lua.meta,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/toolkit/.DS_Store,132046936350000000
 /Users/chenbin/Documents/working/projects/HundredsMenWar/Assets/HundredsMenWar/upgradeRes4Dev/priority/lua/toolkit/BitUtl.lua,132046936350000000
