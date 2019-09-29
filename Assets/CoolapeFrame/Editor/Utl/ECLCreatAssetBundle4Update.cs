@@ -137,13 +137,14 @@ public class ECLCreatAssetBundle4Update
 			sharedAsset.cleanRefAssets ();
 			isRefresh = true;
 		}
-		if (isRefresh) {
+		if (isRefresh && obj is GameObject) {
 		//			AssetDatabase.Refresh ();
-			string path = AssetDatabase.GetAssetPath (obj);
-			EditorUtility.SetDirty (obj);
-			AssetDatabase.WriteImportSettingsIfDirty (path);
-			AssetDatabase.ImportAsset (path);
-		}
+			//string path = AssetDatabase.GetAssetPath (obj);
+			//EditorUtility.SetDirty (obj);
+			//AssetDatabase.WriteImportSettingsIfDirty (path);
+			//AssetDatabase.ImportAsset (path);
+            PrefabUtility.SavePrefabAsset(obj as GameObject);
+        }
 	}
 
 	public static void resetShardAssets (UnityEngine.Object obj)
@@ -181,12 +182,13 @@ public class ECLCreatAssetBundle4Update
 			sharedAsset.resetAssets ();
 			isRefresh = true;
 		}
-		if (isRefresh) {
-			string path = AssetDatabase.GetAssetPath (obj);
-			EditorUtility.SetDirty (obj);
-			AssetDatabase.WriteImportSettingsIfDirty (path);
-			AssetDatabase.ImportAsset (path);
-		}
+		if (isRefresh && obj is GameObject) {
+			//string path = AssetDatabase.GetAssetPath (obj);
+			//EditorUtility.SetDirty (obj);
+			//AssetDatabase.WriteImportSettingsIfDirty (path);
+			//AssetDatabase.ImportAsset (path);
+            PrefabUtility.SavePrefabAsset(obj as GameObject);
+        }
 	}
 
 	public static void createUnity3dFiles (string path, CreateDelegate procDelegate, bool isTraversal)

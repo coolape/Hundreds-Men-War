@@ -740,6 +740,7 @@ public class ECLProjectManager : EditorWindow
 			//默认需要重新设置
 			CLUIUtl.resetAtlasAndFont (go.transform, true);
 		}
+        PrefabUtility.SavePrefabAsset(go);
 		string dir = Application.dataPath + "/" + ECLEditorUtl.getPathByObject (go);
 		dir = Path.GetDirectoryName (dir);
 		ECLCreatAssetBundle4Update.createAssets4Upgrade (dir, go, true);
@@ -753,8 +754,9 @@ public class ECLProjectManager : EditorWindow
 		} else {
 			//默认需要重新设置
 			CLUIUtl.resetAtlasAndFont (go.transform, false);
-		}
-	}
+        }
+        PrefabUtility.SavePrefabAsset(go);
+    }
 
 	//判断是否有修改过文件
 	public static bool isModified (string file)
@@ -852,11 +854,12 @@ public class ECLProjectManager : EditorWindow
 					sharedAsset = ((GameObject)obj).AddComponent<CLSharedAssets> ();
 
 					ret = CLSharedAssetsInspector.getAssets (sharedAsset, sharedAsset.transform) || ret ? true : false;
-					if (sharedAsset.isEmpty ()) {
-						DestroyImmediate (sharedAsset, true);
-					}
+					//if (sharedAsset.isEmpty ()) {
+					//	DestroyImmediate (sharedAsset, true);
+					//}
 					EditorUtility.SetDirty (obj);
-				}
+                    PrefabUtility.SavePrefabAsset(obj as GameObject);
+                }
 //				if (sharedAsset != null) {
 //					ret = CLSharedAssetsInspector.getAssets (sharedAsset, sharedAsset.transform) || ret ? true : false;
 //					if (sharedAsset.isEmpty ()) {
@@ -922,15 +925,17 @@ public class ECLProjectManager : EditorWindow
 
 	public string refreshAllAssetbundles ()
 	{
-		AssetDatabase.Refresh (ImportAssetOptions.ForceUpdate);
+        //AssetDatabase.Refresh (ImportAssetOptions.ForceUpdate);
+        AssetDatabase.SaveAssets();
 
 		if (collectAssets ()) {
 			if (EditorUtility.DisplayDialog ("Alert", "There are some new assets have moved to [upgradeRes4Dev],  do you want refresh all assets now?", "Do it now", "Cancel")) {
 				refreshAllAssetbundles ();
-			}
+
+            }
 			return "";
 		}
-		AssetDatabase.Refresh ();
+		//AssetDatabase.Refresh ();
 
 		// get current ver
 		Hashtable tmpOtherVer = ECLCreateVerCfg.create2Map ("Assets/" + data.name + "/upgradeRes4Dev/other");
